@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+._*
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs / debug artifacts
+*.log
+response.json
