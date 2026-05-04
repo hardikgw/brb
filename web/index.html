@@ -38,6 +38,8 @@
 <link rel="icon" type="image/png" href="images/logo.png" />
 <link rel="apple-touch-icon" href="images/logo.png" />
 
+<script async defer type="module" src="https://cdn.jsdelivr.net/npm/altcha/dist/altcha.min.js"></script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -607,6 +609,18 @@
   .signup-form input::placeholder { color: rgba(244, 237, 217, 0.5); font-style: italic; }
   .signup-form input:focus { border-color: var(--bronze-light); background: rgba(244, 237, 217, 0.12); }
 
+  .signup-form altcha-widget {
+    --altcha-color-base: rgba(244, 237, 217, 0.08);
+    --altcha-color-border: rgba(244, 237, 217, 0.25);
+    --altcha-color-border-focus: var(--bronze-light);
+    --altcha-color-text: var(--paper);
+    --altcha-color-footer-bg: transparent;
+    --altcha-border-radius: 14px;
+    width: 100%;
+    margin-top: 4px;
+    display: block;
+  }
+
   .signup-form button {
     margin-top: 4px;
     padding: 16px 28px;
@@ -620,7 +634,21 @@
     text-transform: uppercase;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: opacity 0.45s ease, transform 0.45s ease,
+                background 0.3s ease, border-color 0.3s ease,
+                box-shadow 0.3s ease, visibility 0s linear 0.45s;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+  }
+
+  .signup-form.altcha-verified button {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.45s ease, transform 0.45s ease,
+                background 0.3s ease, border-color 0.3s ease,
+                box-shadow 0.3s ease, visibility 0s linear;
   }
 
   .signup-form button:hover:not(:disabled) {
@@ -1165,6 +1193,12 @@
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
       <input type="text" name="name" placeholder="Your name (optional)" autocomplete="name" aria-label="Your name" />
       <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Your email address" />
+      <altcha-widget
+        id="altcha"
+        challengeurl="https://YOUR-API-GATEWAY-URL.amazonaws.com/prod/altcha"
+        hidelogo
+        hidefooter
+      ></altcha-widget>
       <button type="submit">Notify Me When We Reopen →</button>
     </form>
 
@@ -1208,9 +1242,22 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+  const altchaWidget = document.getElementById('altcha');
+  const signupForm = document.getElementById('signupForm');
+  altchaWidget.addEventListener('statechange', (ev) => {
+    if (ev.detail && ev.detail.state === 'verified') {
+      signupForm.classList.add('altcha-verified');
+    } else {
+      signupForm.classList.remove('altcha-verified');
+    }
+  });
+
   async function handleSignup(event) {
     event.preventDefault();
     const form = document.getElementById('signupForm');
+    if (!form.classList.contains('altcha-verified')) {
+      return;
+    }
     const button = form.querySelector('button');
     const originalText = button.textContent;
     button.disabled = true;

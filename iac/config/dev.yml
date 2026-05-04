@@ -1,0 +1,10 @@
+env: dev
+region: us-east-1
+account: null
+
+existingBucketName: www.backroombrewery.com
+
+lambda:
+  envVars:
+    LOG_LEVEL: INFO
+    STAGE: dev

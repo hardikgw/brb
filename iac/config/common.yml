@@ -1,0 +1,48 @@
+# Project tag value, also the default `prefix` for resource names.
+project: brb
+
+# Resource naming pattern: <prefix>-<resource-core-name>-<suffix>.
+# The "core name" is owned by each resource construct (its CORE_NAME constant)
+# — there are no resource names in this config.
+# prefix: null     # falls back to `project`
+# suffix: null     # falls back to `env`
+
+indexDocument: index.html
+errorDocument: index.html
+
+siteSourcePath: ../web
+siteExclude:
+  - .DS_Store
+
+lambda:
+  runtime: python3.12
+  handler: handler.lambda_handler
+  # Path to the lambda source directory, relative to the project root.
+  codePath: lambda/signup
+  timeoutSeconds: 30
+  memoryMb: 256
+  envVars: {}
+
+ses:
+  fromAddress: info@backroombrewery.com
+  toAddress: info@backroombrewery.com
+  # Extra addresses to verify on top of fromAddress/toAddress (e.g. test inboxes
+  # while in SES sandbox). Each gets a click-to-verify email.
+  verifyEmails: []
+
+altcha:
+  # Proof-of-work difficulty: client iterates up to maxNumber to find solution.
+  # 50000 keeps verification under ~1s on modern hardware.
+  maxNumber: 50000
+  # How long an issued challenge stays valid (seconds).
+  expiresSeconds: 600
+  # HMAC key shared by the challenge + signup lambdas. Override at deploy time
+  # via the ALTCHA_HMAC_KEY env var; do NOT commit a real secret here.
+  hmacKey: null
+  challenge:
+    runtime: python3.12
+    handler: handler.lambda_handler
+    codePath: lambda/altcha-challenge
+    timeoutSeconds: 5
+    memoryMb: 128
+    envVars: {}

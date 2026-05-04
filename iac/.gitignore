@@ -1,0 +1,8 @@
+*.pyc
+__pycache__/
+.venv/
+venv/
+.cdk.staging/
+cdk.out/
+*.egg-info/
+.altcha-hmac-key

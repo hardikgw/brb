@@ -11,3 +11,11 @@
 # Logs / debug artifacts
 *.log
 response.json
+
+# Python / CDK
+__pycache__/
+*.pyc
+.venv/
+venv/
+cdk.out/
+.cdk.staging/

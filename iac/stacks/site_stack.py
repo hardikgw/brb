@@ -1,0 +1,126 @@
+import os
+import secrets
+from pathlib import Path
+
+import aws_cdk as cdk
+from constructs import Construct
+
+from stacks.naming import Naming
+from stacks.resources.altcha_challenge_function import AltchaChallengeFunction
+from stacks.resources.email_identity import SignupEmailIdentities
+from stacks.resources.signup_function import SignupFunction
+from stacks.resources.site_bucket import SiteBucket
+from stacks.resources.site_deployment import SiteDeployment
+
+
+# Local cache for the auto-generated dev HMAC key. Gitignored. Regenerate by
+# deleting this file. For prod/CI, set ALTCHA_HMAC_KEY in the environment.
+_DEV_KEY_CACHE = Path(__file__).resolve().parents[1] / ".altcha-hmac-key"
+
+
+def _resolve_altcha_hmac_key(config_value: str | None) -> str:
+    env_value = os.environ.get("ALTCHA_HMAC_KEY")
+    if env_value:
+        return env_value
+    if config_value:
+        return config_value
+    if _DEV_KEY_CACHE.exists():
+        cached = _DEV_KEY_CACHE.read_text().strip()
+        if cached:
+            return cached
+    new_key = secrets.token_hex(32)
+    _DEV_KEY_CACHE.write_text(new_key)
+    print(
+        f"[altcha] No ALTCHA_HMAC_KEY env var or altcha.hmacKey in config — "
+        f"generated a dev key and cached at {_DEV_KEY_CACHE} (gitignored). "
+        "Override with ALTCHA_HMAC_KEY for prod/CI."
+    )
+    return new_key
+
+
+class SiteStack(cdk.Stack):
+    CORE_NAME = "static-site"
+
+    def __init__(
+        self,
+        scope: Construct,
+        construct_id: str,
+        *,
+        config: dict,
+        naming: Naming,
+        **kwargs,
+    ) -> None:
+        super().__init__(scope, construct_id, **kwargs)
+
+        naming.apply_default_tags(self)
+
+        site_bucket = SiteBucket(
+            self,
+            "SiteBucket",
+            existing_bucket_name=config["existingBucketName"],
+        )
+
+        iac_root = Path(__file__).resolve().parents[1]
+        project_root = iac_root.parent
+        source_path = (iac_root / config["siteSourcePath"]).resolve()
+
+        SiteDeployment(
+            self,
+            "SiteDeployment",
+            bucket=site_bucket.bucket,
+            source_path=str(source_path),
+            exclude=config["siteExclude"],
+        )
+
+        ses_cfg = config["ses"]
+        verify_emails = list({
+            *(ses_cfg.get("verifyEmails") or []),
+            ses_cfg["fromAddress"],
+            ses_cfg["toAddress"],
+        })
+        identities = SignupEmailIdentities(
+            self,
+            "EmailIdentities",
+            emails=verify_emails,
+        )
+
+        altcha_cfg = config["altcha"]
+        hmac_key = _resolve_altcha_hmac_key(altcha_cfg.get("hmacKey"))
+        altcha_env = {
+            "ALTCHA_HMAC_KEY": hmac_key,
+            "ALTCHA_MAX_NUMBER": str(altcha_cfg.get("maxNumber", 50000)),
+            "ALTCHA_EXPIRES_SECONDS": str(altcha_cfg.get("expiresSeconds", 600)),
+        }
+
+        challenge_cfg = altcha_cfg["challenge"]
+        AltchaChallengeFunction(
+            self,
+            "AltchaChallengeFunction",
+            naming=naming,
+            runtime=challenge_cfg["runtime"],
+            handler=challenge_cfg["handler"],
+            code_path=str((project_root / challenge_cfg["codePath"]).resolve()),
+            timeout_seconds=challenge_cfg["timeoutSeconds"],
+            memory_mb=challenge_cfg["memoryMb"],
+            env_vars={**(challenge_cfg.get("envVars") or {}), **altcha_env},
+        )
+
+        lambda_cfg = config["lambda"]
+        code_path = (project_root / lambda_cfg["codePath"]).resolve()
+        SignupFunction(
+            self,
+            "SignupFunction",
+            naming=naming,
+            runtime=lambda_cfg["runtime"],
+            handler=lambda_cfg["handler"],
+            code_path=str(code_path),
+            timeout_seconds=lambda_cfg["timeoutSeconds"],
+            memory_mb=lambda_cfg["memoryMb"],
+            env_vars={
+                **(lambda_cfg.get("envVars") or {}),
+                "SES_FROM_ADDRESS": ses_cfg["fromAddress"],
+                "SES_TO_ADDRESS": ses_cfg["toAddress"],
+                "ALTCHA_HMAC_KEY": hmac_key,
+            },
+            ses_identity_arns=identities.identity_arns,
+        )
