@@ -30,6 +30,11 @@ ses:
   # while in SES sandbox). Each gets a click-to-verify email.
   verifyEmails: []
 
+api:
+  # CORS allowlist for the REST API. Default `null` means allow any origin —
+  # tighten in prod (e.g. ["https://www.backroombreweryva.com"]).
+  allowedOrigins: null
+
 altcha:
   # Proof-of-work difficulty: client iterates up to maxNumber to find solution.
   # 50000 keeps verification under ~1s on modern hardware.

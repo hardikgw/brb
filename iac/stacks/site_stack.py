@@ -7,6 +7,7 @@ from constructs import Construct
 
 from stacks.naming import Naming
 from stacks.resources.altcha_challenge_function import AltchaChallengeFunction
+from stacks.resources.api import SiteApi
 from stacks.resources.email_identity import SignupEmailIdentities
 from stacks.resources.signup_function import SignupFunction
 from stacks.resources.site_bucket import SiteBucket
@@ -93,7 +94,7 @@ class SiteStack(cdk.Stack):
         }
 
         challenge_cfg = altcha_cfg["challenge"]
-        AltchaChallengeFunction(
+        challenge = AltchaChallengeFunction(
             self,
             "AltchaChallengeFunction",
             naming=naming,
@@ -107,7 +108,7 @@ class SiteStack(cdk.Stack):
 
         lambda_cfg = config["lambda"]
         code_path = (project_root / lambda_cfg["codePath"]).resolve()
-        SignupFunction(
+        signup = SignupFunction(
             self,
             "SignupFunction",
             naming=naming,
@@ -124,3 +125,17 @@ class SiteStack(cdk.Stack):
             },
             ses_identity_arns=identities.identity_arns,
         )
+
+        api_cfg = config.get("api") or {}
+        site_api = SiteApi(
+            self,
+            "Api",
+            naming=naming,
+            signup_function=signup.function,
+            altcha_function=challenge.function,
+            allowed_origins=api_cfg.get("allowedOrigins"),
+        )
+
+        cdk.CfnOutput(self, "ApiBaseUrl", value=site_api.api.url)
+        cdk.CfnOutput(self, "AltchaChallengeUrl", value=site_api.api.url_for_path("/altcha"))
+        cdk.CfnOutput(self, "SignupUrl", value=site_api.api.url_for_path("/signup"))
