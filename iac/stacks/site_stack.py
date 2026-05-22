@@ -12,6 +12,7 @@ from stacks.resources.email_identity import SignupEmailIdentities
 from stacks.resources.signup_function import SignupFunction
 from stacks.resources.site_bucket import SiteBucket
 from stacks.resources.site_deployment import SiteDeployment
+from stacks.resources.site_runtime_config import SiteRuntimeConfig
 
 
 # Local cache for the auto-generated dev HMAC key. Gitignored. Regenerate by
@@ -134,6 +135,17 @@ class SiteStack(cdk.Stack):
             signup_function=signup.function,
             altcha_function=challenge.function,
             allowed_origins=api_cfg.get("allowedOrigins"),
+        )
+
+        SiteRuntimeConfig(
+            self,
+            "SiteRuntimeConfig",
+            bucket=site_bucket.bucket,
+            config={
+                "apiBaseUrl": site_api.api.url,
+                "altchaChallengeUrl": site_api.api.url_for_path("/altcha"),
+                "signupUrl": site_api.api.url_for_path("/signup"),
+            },
         )
 
         cdk.CfnOutput(self, "ApiBaseUrl", value=site_api.api.url)
