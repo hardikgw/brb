@@ -50,7 +50,7 @@ def lambda_handler(event, context):
     source = body.get("_source") or "unknown"
 
     text = (
-        "New signup from the website\n"
+        "New signup from the web\n"
         "---------------------------\n"
         f"Email:  {email}\n"
         f"Name:   {name}\n"

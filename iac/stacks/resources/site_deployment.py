@@ -27,4 +27,5 @@ class SiteDeployment(Construct):
             destination_bucket=bucket,
             sources=[s3_deployment.Source.asset(source_path, exclude=exclude)],
             prune=False,
+            memory_limit=1024,
         )

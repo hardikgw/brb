@@ -6,7 +6,7 @@
 
 <!-- ========================= PRIMARY SEO ========================= -->
 <title>Backroom Brewery — Virginia's First Farm Brewery | Middletown, VA</title>
-<meta name="description" content="Virginia's first farm brewery in Middletown, VA. 25+ award-winning craft beers brewed on 10 scenic Shenandoah Valley acres. Taproom, dog-friendly patio, Big Barn wedding venue &amp; events. Open Wed–Sun." />
+<meta name="description" content="Virginia's first farm brewery in Middletown, VA. 25+ award-winning craft beers brewed on 10 scenic Shenandoah Valley acres. Dog-friendly taproom, gazebo patio event space, Big Barn wedding venue &amp; events. Open Wed–Sun." />
 <meta name="keywords" content="backroom brewery, farm brewery virginia, shenandoah valley brewery, wedding venue virginia, barn wedding venue, winchester brewery, middletown va brewery, event venue shenandoah, corporate retreat northern virginia, brewery near skyline drive, dog friendly brewery virginia, craft beer shenandoah" />
 <meta name="author" content="Backroom Brewery" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -20,7 +20,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Backroom Brewery" />
 <meta property="og:title" content="Backroom Brewery — Virginia's First Farm Brewery" />
-<meta property="og:description" content="25+ award-winning craft beers on a working Shenandoah Valley farm. Big Barn wedding venue, private events, dog-friendly patio. Open Wed–Sun in Middletown, VA." />
+<meta property="og:description" content="25+ award-winning craft beers on a working Shenandoah Valley farm. Big Barn wedding venue, gazebo patio events, dog-friendly taproom. Open Wed–Sun in Middletown, VA." />
 <meta property="og:url" content="https://www.backroombrewery.com/" />
 <meta property="og:image" content="https://www.backroombrewery.com/images/real/hero.jpeg" />
 <meta property="og:image:alt" content="Backroom Brewery exterior — Virginia's First Farm Brewery, Est. 2016" />
@@ -1025,6 +1025,49 @@
     flex-wrap: wrap;
   }
 
+  .events-social {
+    margin-top: 90px;
+    padding-top: 64px;
+    border-top: 1px solid rgba(140, 107, 44, 0.18);
+    text-align: center;
+  }
+
+  .events-social .sec-label { color: var(--bronze-deep); }
+  .events-social .sec-label::before, .events-social .sec-label::after { background: var(--bronze-deep); }
+
+  .events-social h3 {
+    font-family: var(--display);
+    font-size: clamp(22px, 2.8vw, 32px);
+    font-weight: 350;
+    line-height: 1.15;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+    margin-bottom: 36px;
+  }
+
+  .events-social h3 em { font-style: italic; color: var(--bronze-deep); font-weight: 300; }
+
+  .events-social-embed {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 16px;
+    background: linear-gradient(145deg, #FBF5E4 0%, var(--paper-2) 100%);
+    border-radius: 8px;
+    border: 1px solid rgba(140, 107, 44, 0.15);
+    overflow: hidden;
+  }
+
+  .events-social-embed iframe { width: 100%; max-width: 500px; display: block; margin: 0 auto; }
+
+  .events-social-fallback {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  .events-social-fallback a { color: var(--bronze-deep); font-weight: 600; }
+
   .btn-outline {
     font-family: var(--display);
     font-size: 10.5px;
@@ -1559,7 +1602,7 @@
 
 <!-- ===== HERO ===== -->
 <section class="stage" id="home">
-  <div class="section-bg" style="background-image: url('images/real/hero.jpeg'); background-position: center 30%;"></div>
+  <div class="section-bg" style="background-image: url('images/real/hero.jpeg'); background-position: 46.7% 30%;"></div>
   <div class="stage-sky" aria-hidden="true" id="fireflies"></div>
 
   <h1 class="stage-headline reveal">
@@ -1594,7 +1637,7 @@
   <!-- Live hours anchored to bottom of hero -->
   <div class="hours-bar" aria-label="Current hours">
     <div class="hours-bar-badge">Open Now</div>
-    <div class="hours-bar-item"><strong>Wed – Thu</strong> &nbsp;12 pm – 6 pm</div>
+    <div class="hours-bar-item"><strong>Wed – Thu</strong> &nbsp;12 pm – 7 pm</div>
     <div class="hours-bar-sep" aria-hidden="true">·</div>
     <div class="hours-bar-item"><strong>Fri – Sat</strong> &nbsp;12 pm – 8 pm</div>
     <div class="hours-bar-sep" aria-hidden="true">·</div>
@@ -1704,7 +1747,7 @@
       <div class="sec-label reveal">The Taproom</div>
       <h2 class="reveal delay-1">Beer that begins in<br /><em>the field behind the barn.</em></h2>
       <p class="reveal delay-2">
-        Every pint at Backroom Brewery carries the fingerprint of this specific soil, this specific valley, these specific hands. That's not a marketing claim — it's a farm thing.
+        Every pint at Backroom Brewery carries the fingerprint of this specific soil, this specific valley, these specific hands. That's not a marketing claim — it's a farm thing. And bring the whole family — well-behaved dogs are welcome everywhere on the farm, indoors and out.
       </p>
     </div>
 
@@ -1722,9 +1765,9 @@
       </article>
 
       <article class="tap-card reveal delay-1">
-        <span class="tap-card-icon" aria-hidden="true">🐾</span>
-        <h3>Dog-Friendly <em>Patio</em></h3>
-        <p>Bring the whole family — four-legged members included. Our patio opens onto the farm grounds, which means fresh air, open skies, and the Massanutten watching over every tail wag and toast.</p>
+        <span class="tap-card-icon" aria-hidden="true">🥂</span>
+        <h3>Patio &amp; <em>Gazebo</em></h3>
+        <p>An open-air event space just off the taproom, built around a garden gazebo with the Massanutten as a backdrop. Perfect for showers, small ceremonies, engagement parties, or just spilling outside with a pint in hand.</p>
       </article>
 
       <article class="tap-card reveal delay-2">
@@ -1767,12 +1810,12 @@
       <div class="events-list">
         <article class="event-card reveal delay-1">
           <h4>Weddings &amp; Receptions</h4>
-          <p>Indoor ceremony space, a ceremonial outdoor patio, full bar, on-site coordination, and the Massanutten as your backdrop. We've done hundreds — and every one has been different.</p>
+          <p>Indoor ceremony space, an outdoor gazebo patio built for "I do," full bar, on-site coordination, and the Massanutten as your backdrop. We've done hundreds — and every one has been different.</p>
         </article>
 
         <article class="event-card reveal delay-2">
           <h4>Rehearsal Dinners &amp; Gatherings</h4>
-          <p>Intimate evenings in the barn or on the patio. Custom catering, brewery pours, and a setting that does more for the mood than any decorator ever could.</p>
+          <p>Intimate evenings in the barn or out at the gazebo patio. Custom catering, brewery pours, and a setting that does more for the mood than any decorator ever could.</p>
         </article>
 
         <article class="event-card reveal delay-3">
@@ -1784,6 +1827,28 @@
           <a href="mailto:hello@backroombrewery.com?subject=Event Inquiry" class="btn-bronze">Inquire About Your Event</a>
           <a href="tel:+15408698482" class="btn-outline">Call (540) 869-8482</a>
         </div>
+      </div>
+    </div>
+
+    <div class="events-social reveal delay-4">
+      <div class="sec-label">Upcoming Events</div>
+      <h3>See what's on the calendar<br /><em>straight from Facebook.</em></h3>
+      <div class="events-social-embed">
+        <iframe
+          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBackroomBrewery&amp;tabs=events&amp;width=500&amp;height=600&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true"
+          width="500"
+          height="600"
+          style="border:none;overflow:hidden;"
+          scrolling="no"
+          frameborder="0"
+          loading="lazy"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          title="Backroom Brewery upcoming events on Facebook"
+        ></iframe>
+        <p class="events-social-fallback">
+          Events not loading? <a href="https://www.facebook.com/BackroomBrewery/events" target="_blank" rel="noopener">See them directly on Facebook →</a>
+        </p>
       </div>
     </div>
   </div>
@@ -1872,7 +1937,7 @@
 
 <!-- ===== CONTACT / SIGNUP ===== -->
 <section class="contact" id="contact">
-  <div class="section-bg" style="background-image: url('images/real/hero.jpeg'); background-position: center 35%;"></div>
+  <div class="section-bg" style="background-image: url('images/real/hero.jpeg'); background-position: 46.7% 35%;"></div>
   <div class="contact-overlay"></div>
   <div class="contact-wrap">
     <div class="sec-label reveal">Stay in the Loop</div>

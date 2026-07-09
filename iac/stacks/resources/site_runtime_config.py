@@ -36,4 +36,5 @@ class SiteRuntimeConfig(Construct):
             sources=[s3_deployment.Source.json_data(filename, config)],
             prune=False,
             cache_control=[s3_deployment.CacheControl.no_store()],
+            memory_limit=1024,
         )
