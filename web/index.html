@@ -1359,8 +1359,26 @@
     transition: border-color 0.3s, background 0.3s;
   }
 
-  .signup-form input::placeholder { color: rgba(244, 237, 217, 0.48); font-style: italic; }
-  .signup-form input:focus { border-color: var(--bronze-light); background: rgba(244, 237, 217, 0.12); }
+  .signup-form textarea {
+    width: 100%;
+    padding: 16px 22px;
+    background: rgba(244, 237, 217, 0.08);
+    border: 1px solid rgba(244, 237, 217, 0.24);
+    border-radius: 22px;
+    color: var(--paper);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.5;
+    outline: none;
+    resize: vertical;
+    min-height: 90px;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .signup-form input::placeholder,
+  .signup-form textarea::placeholder { color: rgba(244, 237, 217, 0.48); font-style: italic; }
+  .signup-form input:focus,
+  .signup-form textarea:focus { border-color: var(--bronze-light); background: rgba(244, 237, 217, 0.12); }
 
   .signup-form altcha-widget {
     --altcha-color-base: rgba(244, 237, 217, 0.08);
@@ -1947,7 +1965,7 @@
     </h2>
 
     <p class="contact-lead reveal delay-2">
-      New taps. Seasonal brews. Live music nights. Event openings. Leave your email and we'll keep you in the know — nothing but the good stuff from the farm.
+      New taps. Seasonal brews. Live music nights. Event openings. Leave your email — and a message if you've got one — and we'll keep you in the know — nothing but the good stuff from the farm.
     </p>
 
     <form
@@ -1960,6 +1978,7 @@
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
       <input type="text" name="name" placeholder="Your name (optional)" autocomplete="name" aria-label="Your name" />
       <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Your email address" />
+      <textarea name="message" placeholder="Anything you'd like to tell us? (optional)" rows="3" aria-label="Your message"></textarea>
       <div class="signup-actions">
         <altcha-widget
           id="altcha"

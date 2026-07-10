@@ -47,14 +47,16 @@ def lambda_handler(event, context):
         return _response(400, {"ok": False, "error": "invalid_email"})
 
     name = (body.get("name") or "").strip() or "(no name given)"
+    message = (body.get("message") or "").strip() or "(no message)"
     source = body.get("_source") or "unknown"
 
     text = (
-        "New signup from the web\n"
+        "New message from the web\n"
         "---------------------------\n"
-        f"Email:  {email}\n"
-        f"Name:   {name}\n"
-        f"Source: {source}\n"
+        f"Email:   {email}\n"
+        f"Name:    {name}\n"
+        f"Source:  {source}\n"
+        f"Message: {message}\n"
     )
 
     try:
