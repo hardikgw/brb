@@ -8,3 +8,9 @@ lambda:
   envVars:
     LOG_LEVEL: INFO
     STAGE: dev
+
+holidayMarket:
+  lambda:
+    envVars:
+      LOG_LEVEL: INFO
+      STAGE: dev

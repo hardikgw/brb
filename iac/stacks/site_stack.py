@@ -9,6 +9,7 @@ from stacks.naming import Naming
 from stacks.resources.altcha_challenge_function import AltchaChallengeFunction
 from stacks.resources.api import SiteApi
 from stacks.resources.email_identity import SignupEmailIdentities
+from stacks.resources.holidaymarket_function import HolidayMarketFunction
 from stacks.resources.signup_function import SignupFunction
 from stacks.resources.site_bucket import SiteBucket
 from stacks.resources.site_deployment import SiteDeployment
@@ -75,10 +76,13 @@ class SiteStack(cdk.Stack):
         )
 
         ses_cfg = config["ses"]
+        hm_cfg = config["holidayMarket"]
+        hm_to_address = hm_cfg.get("toAddress") or ses_cfg["toAddress"]
         verify_emails = list({
             *(ses_cfg.get("verifyEmails") or []),
             ses_cfg["fromAddress"],
             ses_cfg["toAddress"],
+            hm_to_address,
         })
         identities = SignupEmailIdentities(
             self,
@@ -127,6 +131,25 @@ class SiteStack(cdk.Stack):
             ses_identity_arns=identities.identity_arns,
         )
 
+        hm_lambda_cfg = hm_cfg["lambda"]
+        holidaymarket = HolidayMarketFunction(
+            self,
+            "HolidayMarketFunction",
+            naming=naming,
+            runtime=hm_lambda_cfg["runtime"],
+            handler=hm_lambda_cfg["handler"],
+            code_path=str((project_root / hm_lambda_cfg["codePath"]).resolve()),
+            timeout_seconds=hm_lambda_cfg["timeoutSeconds"],
+            memory_mb=hm_lambda_cfg["memoryMb"],
+            env_vars={
+                **(hm_lambda_cfg.get("envVars") or {}),
+                "SES_FROM_ADDRESS": ses_cfg["fromAddress"],
+                "SES_TO_ADDRESS": hm_to_address,
+                "ALTCHA_HMAC_KEY": hmac_key,
+            },
+            ses_identity_arns=identities.identity_arns,
+        )
+
         api_cfg = config.get("api") or {}
         site_api = SiteApi(
             self,
@@ -134,6 +157,7 @@ class SiteStack(cdk.Stack):
             naming=naming,
             signup_function=signup.function,
             altcha_function=challenge.function,
+            holidaymarket_function=holidaymarket.function,
             allowed_origins=api_cfg.get("allowedOrigins"),
         )
 
@@ -145,9 +169,11 @@ class SiteStack(cdk.Stack):
                 "apiBaseUrl": site_api.api.url,
                 "altchaChallengeUrl": site_api.api.url_for_path("/altcha"),
                 "signupUrl": site_api.api.url_for_path("/signup"),
+                "holidayMarketUrl": site_api.api.url_for_path("/holidaymarket"),
             },
         )
 
         cdk.CfnOutput(self, "ApiBaseUrl", value=site_api.api.url)
         cdk.CfnOutput(self, "AltchaChallengeUrl", value=site_api.api.url_for_path("/altcha"))
         cdk.CfnOutput(self, "SignupUrl", value=site_api.api.url_for_path("/signup"))
+        cdk.CfnOutput(self, "HolidayMarketUrl", value=site_api.api.url_for_path("/holidaymarket"))

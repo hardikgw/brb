@@ -30,6 +30,18 @@ ses:
   # while in SES sandbox). Each gets a click-to-verify email.
   verifyEmails: []
 
+holidayMarket:
+  # Where vendor applications are emailed. `null` falls back to ses.toAddress.
+  # If set, the address is auto-added to the SES verify list.
+  toAddress: null
+  lambda:
+    runtime: python3.12
+    handler: handler.lambda_handler
+    codePath: lambda/holidaymarket
+    timeoutSeconds: 30
+    memoryMb: 256
+    envVars: {}
+
 api:
   # CORS allowlist for the REST API. Default `null` means allow any origin —
   # tighten in prod (e.g. ["https://www.backroombreweryva.com"]).

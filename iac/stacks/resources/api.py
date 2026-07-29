@@ -6,11 +6,12 @@ from stacks.naming import Naming
 
 
 class SiteApi(Construct):
-    """REST API fronting the signup + altcha-challenge Lambdas.
+    """REST API fronting the site's form + altcha-challenge Lambdas.
 
     Routes (all under stage `/prod`):
-      GET  /altcha   ->  altcha challenge function
-      POST /signup   ->  signup function
+      GET  /altcha          ->  altcha challenge function
+      POST /signup          ->  signup function
+      POST /holidaymarket   ->  holiday market vendor application function
 
     CORS preflight is handled by API Gateway itself (via
     `default_cors_preflight_options`), so the Lambdas don't need to handle
@@ -27,6 +28,7 @@ class SiteApi(Construct):
         naming: Naming,
         signup_function: lambda_.IFunction,
         altcha_function: lambda_.IFunction,
+        holidaymarket_function: lambda_.IFunction,
         allowed_origins: list[str] | None = None,
     ) -> None:
         super().__init__(scope, construct_id)
@@ -50,3 +52,6 @@ class SiteApi(Construct):
 
         signup = self.api.root.add_resource("signup")
         signup.add_method("POST", apigw.LambdaIntegration(signup_function))
+
+        holidaymarket = self.api.root.add_resource("holidaymarket")
+        holidaymarket.add_method("POST", apigw.LambdaIntegration(holidaymarket_function))
