@@ -4,17 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Stay Connected — Backroom Brewery | Middletown, VA</title>
-<meta name="description" content="Join the Backroom Brewery list — new taps, seasonal brews, live music nights, and event openings from Virginia's first farm brewery in Middletown, VA." />
+<title>The Farm — Hops, Basil &amp; Homegrown Ingredients | Backroom Brewery</title>
+<meta name="description" content="What's growing at Backroom Brewery's farm in Middletown, VA: hops climbing the hop yard, sweet basil, red basil, and tomatoes in the high tunnel. Basil, red basil, and lemon zest all end up in the beers — field to glass on ten Shenandoah Valley acres." />
 <meta name="robots" content="index, follow, max-image-preview:large" />
-<link rel="canonical" href="https://www.backroombrewery.com/connect" />
+<link rel="canonical" href="https://www.backroombrewery.com/farm" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Backroom Brewery" />
-<meta property="og:title" content="Stay Connected — Backroom Brewery" />
-<meta property="og:description" content="New taps, seasonal brews, live music, and event news from Virginia's first farm brewery. No spam — just the good stuff from the farm." />
-<meta property="og:url" content="https://www.backroombrewery.com/connect" />
-<meta property="og:image" content="https://www.backroombrewery.com/images/real/hero.jpeg" />
+<meta property="og:title" content="The Farm — Backroom Brewery" />
+<meta property="og:description" content="Hops on the bine, basil in the beds, tomatoes in the high tunnel — see what's growing at Virginia's first farm brewery." />
+<meta property="og:url" content="https://www.backroombrewery.com/farm" />
+<meta property="og:image" content="https://www.backroombrewery.com/images/farm/hops.jpeg" />
 <meta property="og:locale" content="en_US" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,12 +30,10 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.backroombrewery.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Stay In Touch", "item": "https://www.backroombrewery.com/connect" }
+    { "@type": "ListItem", "position": 2, "name": "The Farm", "item": "https://www.backroombrewery.com/farm" }
   ]
 }
 </script>
-
-<script async defer type="module" src="https://cdn.jsdelivr.net/npm/altcha/dist/altcha.min.js"></script>
 
 <style>
   :root {
@@ -364,210 +362,241 @@
     height: 1px;
   }
 
-  
-  /* ===== CONTACT / SIGNUP ===== */
-  .contact {
+  /* ===== GROWING NOW ===== */
+  .growing {
+    background: var(--paper-2);
     padding: 110px 24px;
+  }
+
+  .growing-wrap { max-width: 1120px; margin: 0 auto; }
+
+  .growing-header {
     text-align: center;
-    position: relative;
-    overflow: hidden;
-    background: var(--ink-deep);
-    color: var(--paper);
+    margin-bottom: 68px;
   }
 
-  .contact-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(17,21,46,0.92) 0%, rgba(17,21,46,0.84) 100%);
-    z-index: 1;
-    pointer-events: none;
-  }
+  .growing-header .sec-label { color: var(--hop); }
+  .growing-header .sec-label::before, .growing-header .sec-label::after { background: var(--hop); }
 
-  .contact::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: var(--bronze);
-    z-index: 2;
-  }
-
-  .contact-wrap {
-    max-width: 600px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-  }
-
-  .contact .sec-label { color: var(--bronze-light); }
-  .contact .sec-label::before, .contact .sec-label::after { background: rgba(201, 162, 79, 0.7); }
-
-  .contact h2 {
+  .growing-header h2 {
     font-family: var(--display);
-    font-size: clamp(30px, 4.2vw, 52px);
-    line-height: 1.0;
+    font-size: clamp(30px, 4.2vw, 56px);
     font-weight: 350;
+    line-height: 1.05;
+    color: var(--ink);
     letter-spacing: -0.022em;
-    margin-bottom: 18px;
     font-variation-settings: "opsz" 144, "SOFT" 50;
+    margin-bottom: 18px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .contact h2 em { font-style: italic; color: var(--bronze-light); font-weight: 300; }
+  .growing-header h2 em { font-style: italic; color: var(--hop); font-weight: 300; }
 
-  .contact-lead {
-    color: rgba(244, 237, 217, 0.78);
-    font-size: 17px;
-    margin-bottom: 40px;
+  .growing-header p {
+    font-size: 18px;
     line-height: 1.68;
-  }
-
-  .signup-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 540px;
+    color: var(--ink-soft);
+    max-width: 680px;
     margin: 0 auto;
   }
 
-  .signup-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  .growing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
   }
 
-  .signup-form input[type="text"],
-  .signup-form input[type="email"] {
-    width: 100%;
-    padding: 16px 22px;
-    background: rgba(244, 237, 217, 0.08);
-    border: 1px solid rgba(244, 237, 217, 0.24);
-    border-radius: 999px;
-    color: var(--paper);
-    font-family: var(--body);
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s, background 0.3s;
+  .grow-card {
+    padding: 34px 30px;
+    background: linear-gradient(145deg, #FBF5E4 0%, var(--paper-2) 100%);
+    border-radius: 10px;
+    border: 1px solid rgba(140, 107, 44, 0.16);
+    box-shadow: 0 8px 24px rgba(27, 35, 71, 0.07);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
   }
 
-  .signup-form textarea {
-    width: 100%;
-    padding: 16px 22px;
-    background: rgba(244, 237, 217, 0.08);
-    border: 1px solid rgba(244, 237, 217, 0.24);
-    border-radius: 22px;
-    color: var(--paper);
-    font-family: var(--body);
-    font-size: 16px;
-    line-height: 1.5;
-    outline: none;
-    resize: vertical;
-    min-height: 90px;
-    transition: border-color 0.3s, background 0.3s;
+  .grow-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 50px rgba(27, 35, 71, 0.14);
   }
 
-  .signup-form input::placeholder,
-  .signup-form textarea::placeholder { color: rgba(244, 237, 217, 0.48); font-style: italic; }
-  .signup-form input:focus,
-  .signup-form textarea:focus { border-color: var(--bronze-light); background: rgba(244, 237, 217, 0.12); }
-
-  .signup-form altcha-widget {
-    --altcha-color-base: rgba(244, 237, 217, 0.08);
-    --altcha-color-border: rgba(244, 237, 217, 0.25);
-    --altcha-color-border-focus: var(--bronze-light);
-    --altcha-color-text: var(--paper);
-    --altcha-color-footer-bg: transparent;
-    --altcha-border-radius: 14px;
-    flex: 1 1 auto;
-    min-width: 0;
+  .grow-card-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+    line-height: 1;
     display: block;
   }
 
-  .signup-form button {
-    flex: 0 0 auto;
-    white-space: nowrap;
-    padding: 16px 28px;
-    background: var(--bronze);
-    color: var(--ink-deep);
-    border: 1px solid var(--bronze);
-    border-radius: 999px;
+  .grow-card h3 {
     font-family: var(--display);
-    font-size: 10.5px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    font-weight: 600;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(8px);
-    transition: opacity 0.45s ease, transform 0.45s ease,
-                background 0.3s ease, border-color 0.3s ease,
-                box-shadow 0.3s ease, visibility 0s linear 0.45s;
+    font-size: 21px;
+    font-weight: 450;
+    line-height: 1.15;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
   }
 
-  .signup-form.altcha-verified button {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    transition: opacity 0.45s ease, transform 0.45s ease,
-                background 0.3s ease, border-color 0.3s ease,
-                box-shadow 0.3s ease, visibility 0s linear;
+  .grow-card h3 em { font-style: italic; }
+  .grow-card:nth-child(1) h3 em { color: var(--hop); }
+  .grow-card:nth-child(2) h3 em { color: var(--bronze-deep); }
+  .grow-card:nth-child(3) h3 em { color: var(--barn); }
+  .grow-card:nth-child(4) h3 em { color: var(--copper); }
+
+  .grow-card:nth-child(1) { border-top: 3px solid var(--hop); }
+  .grow-card:nth-child(2) { border-top: 3px solid var(--bronze); }
+  .grow-card:nth-child(3) { border-top: 3px solid var(--barn); }
+  .grow-card:nth-child(4) { border-top: 3px solid var(--copper); }
+
+  .grow-card p {
+    font-size: 15.5px;
+    line-height: 1.68;
+    color: var(--ink-soft);
   }
 
-  .signup-form button:hover:not(:disabled) {
-    background: var(--bronze-light);
-    border-color: var(--bronze-light);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(196, 154, 79, 0.42);
+  .grow-card a { color: var(--bronze-deep); }
+  .grow-card a:hover { color: var(--copper); }
+
+  /* ===== FIELD NOTES GALLERY ===== */
+  .field-notes {
+    background: var(--paper);
+    padding: 110px 24px;
   }
 
-  .signup-form button:disabled { opacity: 0.6; cursor: wait; }
+  .field-notes-wrap { max-width: 1120px; margin: 0 auto; }
 
-  .signup-form.thanks {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 28px 16px;
-    color: var(--bronze-light);
-    font-style: italic;
+  .field-notes-header {
+    text-align: center;
+    margin-bottom: 58px;
+  }
+
+  .field-notes-header .sec-label { color: var(--bronze-deep); }
+  .field-notes-header .sec-label::before, .field-notes-header .sec-label::after { background: var(--bronze-deep); }
+
+  .field-notes-header h2 {
     font-family: var(--display);
-    font-size: 19px;
-    min-height: 80px;
+    font-size: clamp(30px, 4.2vw, 56px);
+    font-weight: 350;
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -0.022em;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+    margin-bottom: 18px;
   }
 
-  .contact-links {
-    margin-top: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
+  .field-notes-header h2 em { font-style: italic; color: var(--bronze-deep); font-weight: 300; }
+
+  .gallery {
+    columns: 3;
+    column-gap: 20px;
   }
 
-  .contact-links a {
+  .gallery figure {
+    break-inside: avoid;
+    margin: 0 0 20px;
+    background: #FBF5E4;
+    border: 1px solid rgba(140, 107, 44, 0.16);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(27, 35, 71, 0.07);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .gallery figure:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 44px rgba(27, 35, 71, 0.14);
+  }
+
+  .gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .gallery figcaption {
     font-family: var(--display);
     font-size: 11px;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: rgba(244, 237, 217, 0.62);
-    text-decoration: none;
-    transition: color 0.25s;
+    font-weight: 600;
+    color: var(--ink-soft);
+    padding: 13px 16px;
   }
 
-  .contact-links a:hover { color: var(--bronze-light); }
-  .contact-links .sep { color: rgba(201, 162, 79, 0.35); font-size: 14px; }
+  @media (max-width: 960px) {
+    .growing-grid { grid-template-columns: 1fr; }
+    .gallery { columns: 2; }
+  }
 
-  .contact-small {
-    margin-top: 18px;
-    font-size: 13px;
-    color: rgba(244, 237, 217, 0.40);
+  @media (max-width: 600px) {
+    .gallery { columns: 1; }
+  }
+
+  /* ===== FEATURE BAND ===== */
+  .feature-band {
+    position: relative;
+    height: clamp(300px, 48vw, 580px);
+    background: var(--ink-deep);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(17, 21, 46, 0.50);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .feature-band::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      var(--paper) 0%, rgba(243,234,212,0) 12%,
+      rgba(17,21,46,0) 82%, rgba(17,21,46,0.30) 100%
+    );
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .feature-inner {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 0 24px;
+  }
+
+  .feature-inner blockquote {
+    font-family: var(--display);
+    font-size: clamp(24px, 4.2vw, 56px);
+    font-weight: 300;
     font-style: italic;
+    color: var(--paper);
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    font-variation-settings: "opsz" 144, "SOFT" 90, "WONK" 1;
+    text-shadow: 0 4px 28px rgba(0,0,0,0.65);
+    max-width: 860px;
+    margin: 0 auto 14px;
   }
 
-  @media (max-width: 680px) {
-    .signup-actions { flex-direction: column; align-items: stretch; }
-    .contact-links { gap: 14px; }
+  .feature-inner cite {
+    font-family: var(--display);
+    font-size: 10.5px;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--bronze-light);
+    font-weight: 600;
+    font-style: normal;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.8);
   }
 
   /* ===== BUTTONS ===== */
@@ -798,10 +827,10 @@
       </ul>
     </li>
     <li class="nav-item">
-      <button type="button" class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="dropAbout">About <span class="nav-caret" aria-hidden="true">▾</span></button>
+      <button type="button" class="nav-drop-toggle active" aria-haspopup="true" aria-expanded="false" aria-controls="dropAbout">About <span class="nav-caret" aria-hidden="true">▾</span></button>
       <ul class="nav-drop" id="dropAbout" role="list">
         <li><a href="/story">Our Story</a></li>
-        <li><a href="/farm">The Farm</a></li>
+        <li><a href="/farm" class="active" aria-current="page">The Farm</a></li>
       </ul>
     </li>
     <li class="nav-item">
@@ -812,9 +841,9 @@
       </ul>
     </li>
     <li class="nav-item">
-      <button type="button" class="nav-drop-toggle active" aria-haspopup="true" aria-expanded="false" aria-controls="dropContact">Contact <span class="nav-caret" aria-hidden="true">▾</span></button>
+      <button type="button" class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="dropContact">Contact <span class="nav-caret" aria-hidden="true">▾</span></button>
       <ul class="nav-drop" id="dropContact" role="list">
-        <li><a href="/connect" class="active" aria-current="page">Stay In Touch</a></li>
+        <li><a href="/connect">Stay In Touch</a></li>
         <li><a href="/faq">FAQ</a></li>
         <li><a href="/visit">Visit Us</a></li>
       </ul>
@@ -831,70 +860,124 @@
 
 <!-- ===== PAGE HERO ===== -->
 <header class="page-hero">
-  <div class="section-bg" style="background-image: url('/images/real/hero.jpeg'); background-position: 46.7% 35%;"></div>
+  <div class="section-bg" style="background-image: url('/images/farm/hops.jpeg'); background-position: center 35%;"></div>
   <div class="page-hero-inner">
     <p class="crumbs reveal">
       <a href="/">Home</a>
       <span class="sep" aria-hidden="true">✦</span>
-      <span>Stay Connected</span>
+      <span>The Farm</span>
     </p>
-    <h1 class="reveal delay-1">Stay in<br /><em>the loop.</em></h1>
+    <h1 class="reveal delay-1">Planted, picked,<br /><em>and poured.</em></h1>
     <p class="page-hero-sub reveal delay-2">
-      News, brews, and the occasional reason to drive to the valley — straight from the farm.
+      Hops on the trellis, basil in the beds, tomatoes in the high tunnel — here's what's happening on our ten Shenandoah Valley acres right now.
     </p>
   </div>
 </header>
 
 <main>
 
-<!-- ===== CONTACT / SIGNUP ===== -->
-<section class="contact" id="contact">
-  <div class="section-bg" style="background-image: url('/images/real/hero.jpeg'); background-position: 46.7% 35%;"></div>
-  <div class="contact-overlay"></div>
-  <div class="contact-wrap">
-    <div class="sec-label reveal">Stay in the Loop</div>
-
-    <h2 class="reveal delay-1">
-      The valley has a<br /><em>lot more pours to give.</em>
-    </h2>
-
-    <p class="contact-lead reveal delay-2">
-      New taps. Seasonal brews. Live music nights. Event openings. Leave your email — and a message if you've got one — and we'll keep you in the know — nothing but the good stuff from the farm.
-    </p>
-
-    <form
-      class="signup-form reveal delay-3"
-      id="signupForm"
-      method="POST"
-      onsubmit="handleSignup(event)"
-    >
-      <input type="hidden" name="_source" value="backroombrewery.com" />
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-      <input type="text" name="name" placeholder="Your name (optional)" autocomplete="name" aria-label="Your name" />
-      <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Your email address" />
-      <textarea name="message" placeholder="Anything you'd like to tell us? (optional)" rows="3" aria-label="Your message"></textarea>
-      <div class="signup-actions">
-        <altcha-widget
-          id="altcha"
-          hidelogo
-          hidefooter
-          strings='{"label":"I&apos;m thirsty, not a robot","verifying":"Pouring slowly…","verified":"Cheers!","error":"Keg got stuck — try again","expired":"Pour timed out — refresh"}'
-        ></altcha-widget>
-        <button type="submit">Keep Me Posted →</button>
-      </div>
-    </form>
-
-    <div class="contact-links reveal delay-4">
-      <a href="https://www.instagram.com/backroombrewery" target="_blank" rel="noopener">Instagram</a>
-      <span class="sep" aria-hidden="true">✦</span>
-      <a href="https://www.facebook.com/BackroomBrewery" target="_blank" rel="noopener">Facebook</a>
-      <span class="sep" aria-hidden="true">✦</span>
-      <a href="mailto:hello@backroombrewery.com">Email Us</a>
-      <span class="sep" aria-hidden="true">✦</span>
-      <a href="tel:+15408698482">(540) 869-8482</a>
+<!-- ===== GROWING NOW ===== -->
+<section class="growing" id="growing">
+  <div class="growing-wrap">
+    <div class="growing-header">
+      <div class="sec-label reveal">Growing Now</div>
+      <h2 class="reveal delay-1">This season,<br /><em>in the ground.</em></h2>
+      <p class="reveal delay-2">
+        Backroom Brewery sits on Sunflower Cottage Herb Farm, and the growing never really stopped. The hop yard is climbing, the basil beds are in full flush, and the tomatoes are turning in the high tunnel. What we grow here doesn't travel far — most of it ends up in the brew kettle or the kitchen a few hundred feet away.
+      </p>
     </div>
 
-    <p class="contact-small reveal delay-4">No spam. Just news, brews, and the occasional reason to drive to the valley.</p>
+    <div class="growing-grid">
+      <article class="grow-card reveal">
+        <span class="grow-card-icon" aria-hidden="true">🌱</span>
+        <h3>Hops on <em>the Bine</em></h3>
+        <p>The hops are planted and climbing. Bines wind up the twine of the hop yard all summer, and the cones they set are picked right here for our farm-grown beers — the same yard we first planted back in 2012, still doing its job.</p>
+      </article>
+
+      <article class="grow-card reveal delay-1">
+        <span class="grow-card-icon" aria-hidden="true">🌿</span>
+        <h3>Basil, <em>Two Ways</em></h3>
+        <p>Sweet basil and red basil grow in beds and pots across the farm — this is an herb farm at heart, after all. Fragrant, fast-growing, and picked in the morning while the oils are strongest.</p>
+      </article>
+
+      <article class="grow-card reveal delay-1">
+        <span class="grow-card-icon" aria-hidden="true">🍅</span>
+        <h3>Tomatoes in <em>the Tunnel</em></h3>
+        <p>Roma tomatoes are setting fruit in the high tunnel — green and heavy on the vine, a few already blushing red. When they come ripe, they head straight for the kitchen.</p>
+      </article>
+
+      <article class="grow-card reveal delay-2">
+        <span class="grow-card-icon" aria-hidden="true">🍺</span>
+        <h3>From the Beds to <em>the Brewhouse</em></h3>
+        <p>Basil, red basil, and lemon zest all make their way into the beers — bright, herb-forward batches you won't taste anywhere else, because the ingredients don't exist anywhere else. See what's pouring on the <a href="/beers">draft list</a>.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FIELD NOTES GALLERY ===== -->
+<section class="field-notes" id="field-notes">
+  <div class="field-notes-wrap">
+    <div class="field-notes-header">
+      <div class="sec-label reveal">Field Notes</div>
+      <h2 class="reveal delay-1">Fresh from <em>the rows.</em></h2>
+    </div>
+
+    <div class="gallery">
+      <figure class="reveal">
+        <img src="/images/farm/hops.jpeg" alt="Hop cones hanging from a bine in the hop yard, trellis poles and farm buildings behind" loading="lazy" width="1080" height="1080" />
+        <figcaption>Hop cones fattening on the bine</figcaption>
+      </figure>
+
+      <figure class="reveal delay-1">
+        <img src="/images/farm/basil.jpeg" alt="A dense bed of sweet basil in full flush, starting to flower" loading="lazy" width="844" height="1600" />
+        <figcaption>Sweet basil in full flush</figcaption>
+      </figure>
+
+      <figure class="reveal delay-1">
+        <img src="/images/farm/tomatoes-ripe.jpeg" alt="Roma tomatoes ripening from green to orange and red on the vine" loading="lazy" width="1200" height="1600" />
+        <figcaption>First blush — romas turning</figcaption>
+      </figure>
+
+      <figure class="reveal delay-2">
+        <img src="/images/farm/red-basil.jpeg" alt="Trays of potted red basil with deep purple-veined leaves" loading="lazy" width="899" height="1600" />
+        <figcaption>Red basil, headed for the beds</figcaption>
+      </figure>
+
+      <figure class="reveal delay-2">
+        <img src="/images/farm/hops-bine.jpeg" alt="A hop bine loaded with cones climbing twine against a blue summer sky" loading="lazy" width="1080" height="1080" />
+        <figcaption>A bine reaching for the top wire</figcaption>
+      </figure>
+
+      <figure class="reveal delay-3">
+        <img src="/images/farm/tomatoes-green.jpeg" alt="Green roma tomatoes on caged vines inside the high tunnel" loading="lazy" width="1200" height="1600" />
+        <figcaption>Green romas in the high tunnel</figcaption>
+      </figure>
+
+      <figure class="reveal delay-3">
+        <img src="/images/farm/high-tunnel.jpeg" alt="Summer growing beds thick with green plants inside the high tunnel" loading="lazy" width="1200" height="1600" />
+        <figcaption>Summer beds inside the high tunnel</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURE BAND ===== -->
+<div class="feature-band" aria-hidden="true">
+  <div class="section-bg" style="background-image: url('/images/farm/hops-bine.jpeg'); background-position: center 30%;"></div>
+  <div class="feature-inner reveal">
+    <blockquote>"If it grows here, it goes in the glass."</blockquote>
+    <cite>Field ✦ to ✦ Glass — Backroom Brewery</cite>
+  </div>
+</div>
+
+<!-- ===== NEXT ===== -->
+<section class="next-band">
+  <div class="sec-label reveal">Keep Exploring</div>
+  <h2 class="reveal delay-1">Taste what<br /><em>the farm grew.</em></h2>
+  <div class="btn-row reveal delay-2">
+    <a href="/beers" class="btn-primary">See the Draft List</a>
+    <a href="/visit" class="btn-ghost">Plan Your Visit</a>
   </div>
 </section>
 
@@ -967,69 +1050,6 @@
     });
   }, { threshold: 0.10, rootMargin: '0px 0px -50px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  // ALTCHA captcha
-  const altchaWidget = document.getElementById('altcha');
-  const signupForm  = document.getElementById('signupForm');
-  altchaWidget.addEventListener('statechange', (ev) => {
-    if (ev.detail && ev.detail.state === 'verified') {
-      signupForm.classList.add('altcha-verified');
-    } else {
-      signupForm.classList.remove('altcha-verified');
-    }
-  });
-
-  // Load API URLs from CDK-generated /config.json
-  (async () => {
-    try {
-      const res = await fetch('/config.json', { cache: 'no-store' });
-      if (!res.ok) throw new Error('config.json: ' + res.status);
-      const cfg = await res.json();
-      if (cfg.signupUrl)          signupForm.action = cfg.signupUrl;
-      if (cfg.altchaChallengeUrl) altchaWidget.setAttribute('challengeurl', cfg.altchaChallengeUrl);
-    } catch (err) {
-      console.warn('Runtime config not found — form will not submit:', err.message);
-    }
-  })();
-
-  // Form submit handler
-  async function handleSignup(event) {
-    event.preventDefault();
-    const form   = document.getElementById('signupForm');
-    const button = form.querySelector('button');
-    if (!form.classList.contains('altcha-verified')) return;
-
-    const originalText = button.textContent;
-    button.disabled = true;
-    button.textContent = 'Sending…';
-
-    const data = Object.fromEntries(new FormData(form).entries());
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      if (response.ok) {
-        form.classList.add('thanks');
-        form.innerHTML = '✦ You\'re on the list — cheers from the farm.';
-      } else {
-        throw new Error('Server error ' + response.status);
-      }
-    } catch (err) {
-      console.error('Form submission error:', err);
-      button.disabled = false;
-      button.textContent = originalText;
-      let errEl = form.querySelector('.form-error');
-      if (!errEl) {
-        errEl = document.createElement('div');
-        errEl.className = 'form-error';
-        errEl.style.cssText = 'color:#E6C585;font-style:italic;font-size:14px;margin-top:8px;';
-        errEl.textContent = 'That didn\'t go through — try again or email hello@backroombrewery.com directly.';
-        form.appendChild(errEl);
-      }
-    }
-  }
 </script>
 
 </body>

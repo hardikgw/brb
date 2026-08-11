@@ -95,11 +95,12 @@
     },
     {
       "@type": "SiteNavigationElement",
-      "name": ["Draft Beers", "Food & Beverages", "Our Story", "Taproom", "Don't Miss", "Private Events", "Stay In Touch", "FAQ", "Visit Us"],
+      "name": ["Draft Beers", "Food & Beverages", "Our Story", "The Farm", "Taproom", "Don't Miss", "Private Events", "Stay In Touch", "FAQ", "Visit Us"],
       "url": [
         "https://www.backroombrewery.com/beers",
         "https://www.backroombrewery.com/food",
         "https://www.backroombrewery.com/story",
+        "https://www.backroombrewery.com/farm",
         "https://www.backroombrewery.com/taproom",
         "https://www.backroombrewery.com/events",
         "https://www.backroombrewery.com/private-events",
@@ -797,6 +798,7 @@
   }
 
   .explore-card.ex-story { border-top-color: var(--barn); }
+  .explore-card.ex-farm { border-top-color: var(--hop); }
   .explore-card.ex-taproom { border-top-color: var(--hop); }
   .explore-card.ex-events { border-top-color: var(--bronze); }
   .explore-card.ex-visit { border-top-color: var(--copper); }
@@ -807,6 +809,7 @@
   .explore-card.ex-faq { border-top-color: var(--wood-light); }
 
   .explore-card.ex-story h3 em { color: var(--barn); }
+  .explore-card.ex-farm h3 em { color: var(--hop); }
   .explore-card.ex-taproom h3 em { color: var(--hop); }
   .explore-card.ex-events h3 em { color: var(--bronze-deep); }
   .explore-card.ex-visit h3 em { color: var(--copper); }
@@ -1035,7 +1038,13 @@
         <li><a href="/food">Food &amp; Beverages</a></li>
       </ul>
     </li>
-    <li><a href="/story">About</a></li>
+    <li class="nav-item">
+      <button type="button" class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="dropAbout">About <span class="nav-caret" aria-hidden="true">▾</span></button>
+      <ul class="nav-drop" id="dropAbout" role="list">
+        <li><a href="/story">Our Story</a></li>
+        <li><a href="/farm">The Farm</a></li>
+      </ul>
+    </li>
     <li class="nav-item">
       <button type="button" class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="dropEvents">Events <span class="nav-caret" aria-hidden="true">▾</span></button>
       <ul class="nav-drop" id="dropEvents" role="list">
@@ -1184,6 +1193,13 @@
         <span class="explore-go">Read the story →</span>
       </a>
 
+      <a class="explore-card ex-farm reveal delay-2" href="/farm">
+        <span class="explore-icon" aria-hidden="true">🌱</span>
+        <h3>The <em>Farm</em></h3>
+        <p>Hops climbing the trellis, sweet and red basil in the beds, tomatoes in the high tunnel — see what's growing this season.</p>
+        <span class="explore-go">Walk the rows →</span>
+      </a>
+
       <a class="explore-card ex-taproom reveal delay-2" href="/taproom">
         <span class="explore-icon" aria-hidden="true">🍻</span>
         <h3>The <em>Taproom</em></h3>
@@ -1242,6 +1258,7 @@
     <a href="/beers">Draft Beers</a>
     <a href="/food">Food &amp; Beverages</a>
     <a href="/story">About</a>
+    <a href="/farm">The Farm</a>
     <a href="/events">Don&rsquo;t Miss</a>
     <a href="/private-events">Private Events</a>
     <a href="/connect">Stay In Touch</a>

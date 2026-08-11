@@ -8,7 +8,8 @@ A static multi-page site for **Backroom Brewery** (Middletown, VA) — `backroom
 
 - `web/index.html` — **the live multi-page home** (promoted from the old `home.html` in Aug 2026): hero, mission, awards band, and an "explore" grid that acts as the site map linking to every subpage. Uses **relative** asset paths (unlike subpages).
 - `web/index-backup.html` — the retired legacy single-page site (hero, story, taproom, events, visit, signup all on one page with anchor nav), kept as a backup. It still deploys to the bucket (reachable at `/index-backup.html`); its canonical points to `/`, so it won't compete in search. Not linked from anywhere.
-- `web/story/index.html` (`/story`) — mission + origin story + timeline + awards. Nav label: "About".
+- `web/story/index.html` (`/story`) — mission + origin story + timeline + awards. Nav label: "Our Story" under About.
+- `web/farm/index.html` (`/farm`) — what's growing on the farm: hops in the hop yard (first planted 2012), sweet + red basil, roma tomatoes in the high tunnel, plus a "Field Notes" photo gallery (`/images/farm/`, masonry via CSS columns) and a beds-to-brewhouse card noting basil, red basil, and lemon zest go into the beers. Update seasonally. Nav label: "The Farm" under About.
 - `web/taproom/index.html` (`/taproom`) — taproom cards + farm feature band. Not in the nav menus; reachable from the home explore grid and cross-links.
 - `web/beers/index.html` (`/beers`) — draft beer tap list. **Placeholder content**: sample beer names/styles/ABVs marked with an HTML comment — replace with the real lineup before promoting the new site.
 - `web/food/index.html` (`/food`) — kitchen menu categories + "beyond the taps" beverages (wine, cider, zero-proof). **Placeholder content** marked with an HTML comment.
@@ -23,7 +24,7 @@ There is **no build system, package manager, bundler, framework, or test suite**
 
 **Shared chrome is duplicated by design.** The nav (with mobile hamburger menu), page-hero, footer, brand tokens, buttons, and reveal CSS/JS are copy-pasted into every page — when editing shared chrome, update **all pages** to keep them in sync. Subpage nav is always solid; the home nav is transparent until scrolled (`.scrolled`). Subpages use **absolute** asset paths (`/images/...`, `/config.json`); the home page uses relative paths.
 
-**Nav structure (new site) is a dropdown menu system:** Food & Drinks → `/beers`, `/food` · About → plain link to `/story` · Events → `/events` (Don't Miss), `/private-events` · Contact → `/connect` (Stay In Touch), `/faq`, `/visit` (Visit Us). Desktop shows hover/click dropdown panels (`.nav-item` / `.nav-drop`, plus a `@media (min-width: 961px)` block); mobile renders them as an accordion inside the hamburger panel (`.nav-item.open`). The current page's link gets `class="active"` + `aria-current="page"`, **and** its parent dropdown toggle gets `class="active"`. The dropdown markup/CSS/JS is identical on every page — changing the menu means updating all 10 pages.
+**Nav structure (new site) is a dropdown menu system:** Food & Drinks → `/beers`, `/food` · About → `/story` (Our Story), `/farm` (The Farm) · Events → `/events` (Don't Miss), `/private-events` · Contact → `/connect` (Stay In Touch), `/faq`, `/visit` (Visit Us). Desktop shows hover/click dropdown panels (`.nav-item` / `.nav-drop`, plus a `@media (min-width: 961px)` block); mobile renders them as an accordion inside the hamburger panel (`.nav-item.open`). The current page's link gets `class="active"` + `aria-current="page"`, **and** its parent dropdown toggle gets `class="active"`. The dropdown markup/CSS/JS is identical on every page — changing the menu means updating all 11 pages.
 
 ## Running locally
 
