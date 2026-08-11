@@ -47,6 +47,26 @@ api:
   # tighten in prod (e.g. ["https://www.backroombreweryva.com"]).
   allowedOrigins: null
 
+facebook:
+  # Facebook Page whose upcoming events are shown on /events. Page id or slug.
+  pageId: BackroomBrewery
+  # Long-lived Page access token used to read the events. Override at deploy
+  # time via the FB_PAGE_TOKEN env var; do NOT commit a real token here.
+  # Without a token the /fbevents endpoint returns an empty list and the
+  # events page falls back to a "see it on Facebook" link.
+  pageToken: null
+  graphVersion: v21.0
+  # How long the Lambda (and browsers, via Cache-Control) cache the feed.
+  cacheSeconds: 1800
+  eventsLimit: 10
+  lambda:
+    runtime: python3.12
+    handler: handler.lambda_handler
+    codePath: lambda/fbevents
+    timeoutSeconds: 10
+    memoryMb: 128
+    envVars: {}
+
 altcha:
   # Proof-of-work difficulty: client iterates up to maxNumber to find solution.
   # 50000 keeps verification under ~1s on modern hardware.

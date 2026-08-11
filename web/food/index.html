@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Food &amp; Beverages — Backroom Brewery | Pub Fare &amp; Farm Bites in Middletown, VA</title>
+<meta name="description" content="The kitchen at Backroom Brewery serves pub fare with farm-fresh ingredients daily in the Main Taproom — plus Virginia wine, cider, and non-alcoholic options. The post-hike meal near Skyline Drive and Shenandoah National Park. Middletown, VA." />
+<meta name="keywords" content="restaurant middletown va, food near skyline drive, restaurant near shenandoah national park, post hike food front royal, farm to table shenandoah valley, dog friendly patio winchester va, brewery food virginia" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://www.backroombrewery.com/food" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Backroom Brewery" />
+<meta property="og:title" content="Food &amp; Beverages — Backroom Brewery" />
+<meta property="og:description" content="Pub fare with farm-fresh ingredients, herb-forward specials, and plenty to drink beyond the beer — on a working Shenandoah Valley farm." />
+<meta property="og:url" content="https://www.backroombrewery.com/food" />
+<meta property="og:image" content="https://www.backroombrewery.com/images/real/hero.jpeg" />
+<meta property="og:locale" content="en_US" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="/images/brb-logo.png" />
+<link rel="apple-touch-icon" href="/images/brb-logo.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.backroombrewery.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Food & Beverages", "item": "https://www.backroombrewery.com/food" }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --ink: #1B2347;
+    --ink-soft: #3A3A6B;
+    --ink-deep: #11152E;
+    --sky-violet: #544F86;
+    --paper: #F3EAD4;
+    --paper-2: #E7DBBE;
+    --paper-3: #DDD0AA;
+    --bronze: #C9A24F;
+    --bronze-light: #E6C585;
+    --bronze-deep: #8C6B2C;
+    --barn: #B04A30;
+    --barn-deep: #8C3A26;
+    --wood: #8B5A2B;
+    --wood-light: #B07D4F;
+    --hop: #6B7A30;
+    --hop-light: #8A9A42;
+    --copper: #BD6A3A;
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --body: 'Newsreader', Georgia, serif;
+    --nav-h: 70px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); }
+
+  body {
+    font-family: var(--body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 17px;
+    font-weight: 380;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Film-grain texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9000;
+    opacity: 0.028;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
+
+  /* Dusk-filtered background image layer — sits under all overlays */
+  .section-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: sepia(0.52) saturate(1.6) brightness(0.58) contrast(1.14) hue-rotate(-16deg);
+    z-index: 0;
+  }
+
+  /* ===== NAV (solid on interior pages) ===== */
+  .site-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(18px, 4vw, 52px);
+    background: rgba(17, 21, 46, 0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 2px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+  }
+
+  .nav-logo img { width: 42px; height: 42px; }
+
+  .nav-logo-text {
+    font-family: var(--display);
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--paper);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .nav-logo-text span {
+    display: block;
+    font-size: 9.5px;
+    letter-spacing: 0.28em;
+    color: var(--bronze-light);
+    font-weight: 500;
+    opacity: 0.9;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--display);
+    font-size: 10.5px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: rgba(244, 237, 217, 0.78);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.25s;
+  }
+
+  .nav-links a:hover { color: var(--bronze-light); }
+  .nav-links a.active { color: var(--bronze-light); }
+
+  /* Dropdown menus */
+  .nav-item { position: relative; }
+
+  .nav-drop-toggle {
+    font-family: var(--display);
+    font-size: 10.5px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: rgba(244, 237, 217, 0.78);
+    font-weight: 500;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: color 0.25s;
+  }
+
+  .nav-drop-toggle:hover,
+  .nav-drop-toggle.active,
+  .nav-item.open > .nav-drop-toggle { color: var(--bronze-light); }
+
+  .nav-caret {
+    font-size: 8px;
+    line-height: 1;
+    transition: transform 0.25s;
+  }
+
+  .nav-item.open .nav-caret { transform: rotate(180deg); }
+
+  .nav-drop { list-style: none; }
+
+  .nav-drop a { display: block; }
+
+  @media (min-width: 961px) {
+    .nav-item { display: flex; align-items: center; height: var(--nav-h); }
+    .nav-drop-toggle { height: 100%; }
+    .nav-item:hover .nav-caret { transform: rotate(180deg); }
+
+    .nav-drop {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      min-width: 208px;
+      padding: 10px 0;
+      background: rgba(17, 21, 46, 0.97);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(201, 162, 79, 0.25);
+      border-radius: 10px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+    }
+
+    .nav-item:hover > .nav-drop,
+    .nav-item:focus-within > .nav-drop,
+    .nav-item.open > .nav-drop {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-drop a { padding: 9px 22px; white-space: nowrap; }
+  }
+
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+
+  .nav-cta {
+    font-family: var(--display);
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink-deep);
+    background: var(--bronze);
+    padding: 10px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+  }
+
+  .nav-cta:hover {
+    background: var(--bronze-light);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(201, 162, 79, 0.4);
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--paper);
+    margin: 5px 0;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .site-nav.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .site-nav.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+  .site-nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ===== PAGE HERO ===== */
+  .page-hero {
+    position: relative;
+    background: var(--ink-deep);
+    padding: calc(var(--nav-h) + 92px) 24px 84px;
+    text-align: center;
+    overflow: hidden;
+    color: var(--paper);
+  }
+
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(17,21,46,0.84) 0%, rgba(17,21,46,0.55) 55%, rgba(17,21,46,0.80) 100%);
+    pointer-events: none;
+  }
+
+  .page-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .crumbs {
+    font-family: var(--display);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(244, 237, 217, 0.6);
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .crumbs a { color: var(--bronze-light); text-decoration: none; transition: color 0.25s; }
+  .crumbs a:hover { color: var(--paper); }
+  .crumbs .sep { color: var(--bronze); opacity: 0.7; }
+
+  .page-hero h1 {
+    font-family: var(--display);
+    font-size: clamp(34px, 5vw, 62px);
+    font-weight: 330;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 1;
+    margin-bottom: 16px;
+    text-shadow: 0 4px 32px rgba(0,0,0,0.5);
+  }
+
+  .page-hero h1 em { font-style: italic; color: var(--bronze-light); font-weight: 300; }
+
+  .page-hero-sub {
+    font-style: italic;
+    font-size: clamp(16px, 1.8vw, 19px);
+    color: rgba(244, 237, 217, 0.85);
+    line-height: 1.65;
+    max-width: 640px;
+    margin: 0 auto;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.6);
+  }
+
+  /* ===== SHARED SECTION LABEL ===== */
+  .sec-label {
+    font-family: var(--display);
+    font-size: 10.5px;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 22px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .sec-label::before, .sec-label::after {
+    content: '';
+    width: 28px;
+    height: 1px;
+  }
+
+  /* ===== KITCHEN ===== */
+  .kitchen {
+    background: var(--paper-2);
+    padding: 110px 24px;
+  }
+
+  .kitchen-wrap { max-width: 1120px; margin: 0 auto; }
+
+  .kitchen-header {
+    text-align: center;
+    margin-bottom: 68px;
+  }
+
+  .kitchen-header .sec-label { color: var(--barn); }
+  .kitchen-header .sec-label::before, .kitchen-header .sec-label::after { background: var(--barn); }
+
+  .kitchen-header h2 {
+    font-family: var(--display);
+    font-size: clamp(30px, 4.2vw, 56px);
+    font-weight: 350;
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -0.022em;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+    margin-bottom: 18px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .kitchen-header h2 em { font-style: italic; color: var(--barn); font-weight: 300; }
+
+  .kitchen-header p {
+    font-size: 18px;
+    line-height: 1.68;
+    color: var(--ink-soft);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .kitchen-note {
+    margin-top: 18px;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .menu-card {
+    padding: 34px 30px;
+    background: linear-gradient(145deg, #FBF5E4 0%, var(--paper-2) 100%);
+    border-radius: 10px;
+    border: 1px solid rgba(140, 107, 44, 0.16);
+    box-shadow: 0 8px 24px rgba(27, 35, 71, 0.07);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 50px rgba(27, 35, 71, 0.14);
+  }
+
+  .menu-card-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+    line-height: 1;
+    display: block;
+  }
+
+  .menu-card h3 {
+    font-family: var(--display);
+    font-size: 21px;
+    font-weight: 450;
+    line-height: 1.15;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+
+  .menu-card h3 em { font-style: italic; }
+  .menu-card:nth-child(1) h3 em { color: var(--barn); }
+  .menu-card:nth-child(2) h3 em { color: var(--bronze-deep); }
+  .menu-card:nth-child(3) h3 em { color: var(--hop); }
+  .menu-card:nth-child(4) h3 em { color: var(--copper); }
+
+  .menu-card:nth-child(1) { border-top: 3px solid var(--barn); }
+  .menu-card:nth-child(2) { border-top: 3px solid var(--bronze); }
+  .menu-card:nth-child(3) { border-top: 3px solid var(--hop); }
+  .menu-card:nth-child(4) { border-top: 3px solid var(--copper); }
+
+  .menu-card p {
+    font-size: 15.5px;
+    line-height: 1.68;
+    color: var(--ink-soft);
+  }
+
+  /* ===== BEYOND THE TAPS ===== */
+  .beyond {
+    background: var(--ink-deep);
+    color: var(--paper);
+    padding: 100px 24px;
+  }
+
+  .beyond-wrap { max-width: 1120px; margin: 0 auto; text-align: center; }
+
+  .beyond .sec-label { color: var(--bronze-light); }
+  .beyond .sec-label::before, .beyond .sec-label::after { background: rgba(230, 197, 133, 0.6); }
+
+  .beyond h2 {
+    font-family: var(--display);
+    font-size: clamp(26px, 3.4vw, 44px);
+    font-weight: 350;
+    line-height: 1.1;
+    color: var(--paper);
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+    margin-bottom: 18px;
+  }
+
+  .beyond h2 em { font-style: italic; color: var(--bronze-light); font-weight: 300; }
+
+  .beyond > .beyond-wrap > p {
+    font-size: 17px;
+    line-height: 1.68;
+    color: rgba(244, 237, 217, 0.78);
+    max-width: 640px;
+    margin: 0 auto 48px;
+  }
+
+  .beyond-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .beyond-card {
+    flex: 1 1 220px;
+    max-width: 260px;
+    padding: 26px 22px;
+    background: rgba(244, 237, 217, 0.05);
+    border: 1px solid rgba(201, 162, 79, 0.22);
+    border-radius: 10px;
+  }
+
+  .beyond-card-icon {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+
+  .beyond-card h4 {
+    font-family: var(--display);
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--bronze-light);
+    margin-bottom: 8px;
+  }
+
+  .beyond-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(244, 237, 217, 0.7);
+    font-style: italic;
+  }
+
+  /* ===== BUTTONS ===== */
+  .btn-primary {
+    font-family: var(--display);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink-deep);
+    background: var(--bronze);
+    padding: 15px 34px;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 2px solid var(--bronze);
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--bronze-light);
+    border-color: var(--bronze-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(201, 162, 79, 0.42);
+  }
+
+  .btn-ghost {
+    font-family: var(--display);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--paper);
+    background: transparent;
+    padding: 15px 34px;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 2px solid rgba(244, 237, 217, 0.48);
+    transition: border-color 0.3s, color 0.3s, transform 0.3s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--bronze-light);
+    color: var(--bronze-light);
+    transform: translateY(-2px);
+  }
+
+  /* ===== NEXT BAND ===== */
+  .next-band {
+    background: var(--ink-deep);
+    text-align: center;
+    padding: 84px 24px;
+    border-top: 1px solid rgba(201, 162, 79, 0.14);
+  }
+
+  .next-band .sec-label { color: var(--bronze-light); }
+  .next-band .sec-label::before, .next-band .sec-label::after { background: rgba(230, 197, 133, 0.6); }
+
+  .next-band h2 {
+    font-family: var(--display);
+    font-size: clamp(26px, 3.4vw, 44px);
+    font-weight: 350;
+    line-height: 1.1;
+    color: var(--paper);
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+    margin-bottom: 30px;
+  }
+
+  .next-band h2 em { font-style: italic; color: var(--bronze-light); font-weight: 300; }
+
+  .next-band .btn-row {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--ink-deep);
+    color: rgba(244, 237, 217, 0.68);
+    padding: 58px 24px 36px;
+    border-top: 1px solid rgba(201, 162, 79, 0.14);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .foot-logo { width: 64px; height: 64px; opacity: 0.9; }
+
+  .foot-brand {
+    font-family: var(--display);
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--paper);
+    font-weight: 600;
+  }
+
+  .foot-brand span {
+    display: block;
+    font-size: 9.5px;
+    letter-spacing: 0.28em;
+    color: var(--bronze-light);
+    font-weight: 500;
+    margin-top: 3px;
+  }
+
+  .foot-location {
+    font-family: var(--display);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(244, 237, 217, 0.55);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .foot-location .sep { color: var(--bronze-light); opacity: 0.55; }
+
+  .foot-social { display: flex; gap: 26px; align-items: center; }
+
+  .foot-social a {
+    font-family: var(--display);
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(244, 237, 217, 0.55);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+
+  .foot-social a:hover { color: var(--bronze-light); }
+
+  .foot-divider {
+    width: 1px; height: 18px;
+    background: rgba(244, 237, 217, 0.14);
+  }
+
+  .copyright {
+    font-family: var(--display);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: rgba(244, 237, 217, 0.36);
+  }
+
+  .copyright em { color: var(--bronze-light); font-style: italic; }
+
+  /* ===== REVEAL ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1s ease, transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal.delay-1 { transition-delay: 0.15s; }
+  .reveal.delay-2 { transition-delay: 0.30s; }
+  .reveal.delay-3 { transition-delay: 0.45s; }
+  .reveal.delay-4 { transition-delay: 0.60s; }
+  .no-js .reveal { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 960px) {
+    .nav-toggle { display: block; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; right: 0;
+      background: rgba(17, 21, 46, 0.98);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 22px clamp(18px, 4vw, 52px) 28px;
+      gap: 22px;
+      border-bottom: 1px solid rgba(201, 162, 79, 0.22);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+    }
+    .site-nav.nav-open .nav-links { display: flex; }
+    .nav-links a { font-size: 12px; }
+    .nav-item { width: 100%; }
+    .nav-drop-toggle { width: 100%; justify-content: space-between; font-size: 12px; }
+    .nav-drop {
+      display: none;
+      margin: 14px 0 2px 2px;
+      padding: 0 0 0 16px;
+      border-left: 1px solid rgba(201, 162, 79, 0.3);
+    }
+    .nav-item.open > .nav-drop { display: block; }
+    .nav-drop a { padding: 8px 0; }
+    .menu-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 680px) {
+    .nav-right .nav-cta { display: none; }
+  }
+</style>
+</head>
+<body class="no-js">
+<script>document.body.classList.remove('no-js');</script>
+
+<!-- ===== NAV ===== -->
+<nav class="site-nav" id="siteNav" aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="Backroom Brewery home">
+    <img src="/images/brb-logo.gif" alt="Backroom Brewery badge" />
+    <div class="nav-logo-text">
+      Backroom Brewery
+      <span>Middletown, Virginia</span>
+    </div>
+  </a>
+
+  <ul class="nav-links" id="navLinks" role="list">
+    <li class="nav-item">
+      <button type="button" class="nav-drop-toggle active" aria-haspopup="true" aria-expanded="false" aria-controls="dropFood">Food &amp; Drinks <span class="nav-caret" aria-hidden="true">▾</span></button>
+      <ul class="nav-drop" id="dropFood" role="list">
+        <li><a href="/beers">Draft Beers</a></li>
+        <li><a href="/food" class="active" aria-current="page">Food &amp; Beverages</a></li>
+      </ul>
+    </li>
+    <li><a href="/story">About</a></li>
+    <li class="nav-item">
+      <button type="button" class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="dropEvents">Events <span class="nav-caret" aria-hidden="true">▾</span></button>
+      <ul class="nav-drop" id="dropEvents" role="list">
+        <li><a href="/events">Don&rsquo;t Miss</a></li>
+        <li><a href="/private-events">Private Events</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <button type="button" class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="dropContact">Contact <span class="nav-caret" aria-hidden="true">▾</span></button>
+      <ul class="nav-drop" id="dropContact" role="list">
+        <li><a href="/connect">Stay In Touch</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/visit">Visit Us</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="nav-right">
+    <a href="/connect" class="nav-cta">Stay Connected</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== PAGE HERO ===== -->
+<header class="page-hero">
+  <div class="section-bg" style="background-image: url('/images/real/IMG_4587.jpeg'); background-position: center 40%;"></div>
+  <div class="page-hero-inner">
+    <p class="crumbs reveal">
+      <a href="/">Home</a>
+      <span class="sep" aria-hidden="true">✦</span>
+      <span>Food &amp; Drinks</span>
+      <span class="sep" aria-hidden="true">✦</span>
+      <span>Food &amp; Beverages</span>
+    </p>
+    <h1 class="reveal delay-1">The kitchen keeps up<br /><em>with the kettle.</em></h1>
+    <p class="page-hero-sub reveal delay-2">
+      Pub fare with farm-fresh ingredients — and plenty to drink beyond the beer.
+    </p>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== KITCHEN ===== -->
+<section class="kitchen" id="kitchen">
+  <div class="kitchen-wrap">
+    <div class="kitchen-header">
+      <div class="sec-label reveal">From the Kitchen</div>
+      <h2 class="reveal delay-1">Honest food that earns its place<br /><em>next to a cold pint.</em></h2>
+      <p class="reveal delay-2">
+        The kitchen serves daily in the Main Taproom — farm-fresh ingredients, local sourcing, herbs cut from our own beds, and plates that don't take themselves too seriously.
+      </p>
+      <p class="kitchen-note reveal delay-2">
+        Menus change with the seasons and the harvest — ask what's on when you visit.
+      </p>
+    </div>
+
+    <!-- PLACEHOLDER MENU CATEGORIES — sample copy; replace with the real menu
+         (or link a current menu) before promoting the new site. -->
+    <div class="menu-grid">
+      <article class="menu-card reveal">
+        <span class="menu-card-icon" aria-hidden="true">🥨</span>
+        <h3>Starters &amp; <em>Snacks</em></h3>
+        <p>Beer-friendly bites built for the patio — soft pretzels with beer cheese, farm boards, and whatever the kitchen is showing off this week.</p>
+      </article>
+
+      <article class="menu-card reveal delay-1">
+        <span class="menu-card-icon" aria-hidden="true">🥪</span>
+        <h3>Sandwiches &amp; <em>Mains</em></h3>
+        <p>Honest, satisfying plates — burgers, sandwiches, and comfort classics sized for an afternoon that turns into an evening.</p>
+      </article>
+
+      <article class="menu-card reveal delay-1">
+        <span class="menu-card-icon" aria-hidden="true">🌿</span>
+        <h3>From <em>the Farm</em></h3>
+        <p>Herb-forward specials starring what's growing outside the window — the same beds that seasoned the beer season the plate.</p>
+      </article>
+
+      <article class="menu-card reveal delay-2">
+        <span class="menu-card-icon" aria-hidden="true">🍰</span>
+        <h3>Sweet <em>Finishes</em></h3>
+        <p>A short list of desserts that changes on the kitchen's whim. If the seasonal one is on, don't overthink it.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BEYOND THE TAPS ===== -->
+<section class="beyond" id="beverages">
+  <div class="beyond-wrap">
+    <div class="sec-label reveal">Beyond the Taps</div>
+    <h2 class="reveal delay-1">Not a beer drinker?<br /><em>You're still invited.</em></h2>
+    <p class="reveal delay-2">
+      The farm pours more than beer — there's a glass here for everyone in the car.
+    </p>
+
+    <div class="beyond-grid">
+      <div class="beyond-card reveal delay-1">
+        <span class="beyond-card-icon" aria-hidden="true">🍷</span>
+        <h4>Virginia Wine</h4>
+        <p>A short list from neighboring Shenandoah Valley vineyards.</p>
+      </div>
+      <div class="beyond-card reveal delay-2">
+        <span class="beyond-card-icon" aria-hidden="true">🍎</span>
+        <h4>Hard Cider</h4>
+        <p>Crisp, local, and orchard-grown — the valley does apples right.</p>
+      </div>
+      <div class="beyond-card reveal delay-2">
+        <span class="beyond-card-icon" aria-hidden="true">🫧</span>
+        <h4>Seltzer &amp; Spritzes</h4>
+        <p>Something light and bubbly for the sunny end of the patio.</p>
+      </div>
+      <div class="beyond-card reveal delay-3">
+        <span class="beyond-card-icon" aria-hidden="true">🥤</span>
+        <h4>Zero-Proof</h4>
+        <p>Sodas, sparkling water, and non-alcoholic options for drivers, kids, and pacing yourself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEXT ===== -->
+<section class="next-band">
+  <div class="sec-label reveal">Keep Exploring</div>
+  <h2 class="reveal delay-1">Now pick the pint<br /><em>to go with it.</em></h2>
+  <div class="btn-row reveal delay-2">
+    <a href="/beers" class="btn-primary">See the Draft Beers</a>
+    <a href="/taproom" class="btn-ghost">Visit the Taproom</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <img src="/images/brb-logo.gif" alt="Backroom Brewery" class="foot-logo" />
+
+  <div class="foot-brand">
+    Backroom Brewery
+    <span>Sunflower Cottage · Middletown, Virginia</span>
+  </div>
+
+  <div class="foot-location">
+    <span>150 Ridgemont Rd.</span>
+    <span class="sep" aria-hidden="true">✦</span>
+    <span>Middletown, VA 22645</span>
+    <span class="sep" aria-hidden="true">✦</span>
+    <span>(540) 869-8482</span>
+  </div>
+
+  <div class="foot-social">
+    <a href="https://www.instagram.com/backroombrewery" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+    <div class="foot-divider" aria-hidden="true"></div>
+    <a href="https://www.facebook.com/BackroomBrewery" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+    <div class="foot-divider" aria-hidden="true"></div>
+    <a href="mailto:hello@backroombrewery.com" aria-label="Email">Email</a>
+  </div>
+
+  <div class="copyright">
+    © 2026 Backroom Brewery · Sunflower Cottage Herb Farm · Please drink <em>responsibly.</em>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const navEl = document.getElementById('siteNav');
+  const navToggle = document.getElementById('navToggle');
+  navToggle.addEventListener('click', () => {
+    const open = navEl.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // Dropdown menus — click/tap toggles (mobile accordion + touch); hover covers desktop
+  const dropItems = document.querySelectorAll('.nav-item');
+  const closeDrop = (item) => {
+    item.classList.remove('open');
+    item.querySelector('.nav-drop-toggle').setAttribute('aria-expanded', 'false');
+  };
+  dropItems.forEach((item) => {
+    const btn = item.querySelector('.nav-drop-toggle');
+    btn.addEventListener('click', () => {
+      const open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      dropItems.forEach((other) => { if (other !== item) closeDrop(other); });
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!navEl.contains(e.target)) dropItems.forEach(closeDrop);
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.10, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

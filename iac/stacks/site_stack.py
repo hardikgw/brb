@@ -9,7 +9,9 @@ from stacks.naming import Naming
 from stacks.resources.altcha_challenge_function import AltchaChallengeFunction
 from stacks.resources.api import SiteApi
 from stacks.resources.email_identity import SignupEmailIdentities
+from stacks.resources.fbevents_function import FacebookEventsFunction
 from stacks.resources.holidaymarket_function import HolidayMarketFunction
+from stacks.resources.site_alias_objects import SiteAliasObjects
 from stacks.resources.signup_function import SignupFunction
 from stacks.resources.site_bucket import SiteBucket
 from stacks.resources.site_deployment import SiteDeployment
@@ -73,6 +75,24 @@ class SiteStack(cdk.Stack):
             bucket=site_bucket.bucket,
             source_path=str(source_path),
             exclude=config["siteExclude"],
+        )
+
+        SiteAliasObjects(
+            self,
+            "SiteAliasObjects",
+            bucket=site_bucket.bucket,
+            aliases={
+                "holidaymarket": str(source_path / "holidaymarket" / "index.html"),
+                "story": str(source_path / "story" / "index.html"),
+                "taproom": str(source_path / "taproom" / "index.html"),
+                "events": str(source_path / "events" / "index.html"),
+                "visit": str(source_path / "visit" / "index.html"),
+                "connect": str(source_path / "connect" / "index.html"),
+                "beers": str(source_path / "beers" / "index.html"),
+                "food": str(source_path / "food" / "index.html"),
+                "private-events": str(source_path / "private-events" / "index.html"),
+                "faq": str(source_path / "faq" / "index.html"),
+            },
         )
 
         ses_cfg = config["ses"]
@@ -150,6 +170,33 @@ class SiteStack(cdk.Stack):
             ses_identity_arns=identities.identity_arns,
         )
 
+        fb_cfg = config["facebook"]
+        fb_token = os.environ.get("FB_PAGE_TOKEN") or fb_cfg.get("pageToken") or ""
+        if not fb_token:
+            print(
+                "[facebook] No FB_PAGE_TOKEN env var or facebook.pageToken in "
+                "config — GET /fbevents will return an empty list until one is set."
+            )
+        fb_lambda_cfg = fb_cfg["lambda"]
+        fbevents = FacebookEventsFunction(
+            self,
+            "FacebookEventsFunction",
+            naming=naming,
+            runtime=fb_lambda_cfg["runtime"],
+            handler=fb_lambda_cfg["handler"],
+            code_path=str((project_root / fb_lambda_cfg["codePath"]).resolve()),
+            timeout_seconds=fb_lambda_cfg["timeoutSeconds"],
+            memory_mb=fb_lambda_cfg["memoryMb"],
+            env_vars={
+                **(fb_lambda_cfg.get("envVars") or {}),
+                "FB_PAGE_ID": str(fb_cfg.get("pageId") or ""),
+                "FB_PAGE_TOKEN": fb_token,
+                "FB_GRAPH_VERSION": str(fb_cfg.get("graphVersion", "v21.0")),
+                "FB_CACHE_SECONDS": str(fb_cfg.get("cacheSeconds", 1800)),
+                "FB_EVENTS_LIMIT": str(fb_cfg.get("eventsLimit", 10)),
+            },
+        )
+
         api_cfg = config.get("api") or {}
         site_api = SiteApi(
             self,
@@ -158,6 +205,7 @@ class SiteStack(cdk.Stack):
             signup_function=signup.function,
             altcha_function=challenge.function,
             holidaymarket_function=holidaymarket.function,
+            fbevents_function=fbevents.function,
             allowed_origins=api_cfg.get("allowedOrigins"),
         )
 
@@ -170,6 +218,7 @@ class SiteStack(cdk.Stack):
                 "altchaChallengeUrl": site_api.api.url_for_path("/altcha"),
                 "signupUrl": site_api.api.url_for_path("/signup"),
                 "holidayMarketUrl": site_api.api.url_for_path("/holidaymarket"),
+                "fbEventsUrl": site_api.api.url_for_path("/fbevents"),
             },
         )
 
@@ -177,3 +226,4 @@ class SiteStack(cdk.Stack):
         cdk.CfnOutput(self, "AltchaChallengeUrl", value=site_api.api.url_for_path("/altcha"))
         cdk.CfnOutput(self, "SignupUrl", value=site_api.api.url_for_path("/signup"))
         cdk.CfnOutput(self, "HolidayMarketUrl", value=site_api.api.url_for_path("/holidaymarket"))
+        cdk.CfnOutput(self, "FbEventsUrl", value=site_api.api.url_for_path("/fbevents"))

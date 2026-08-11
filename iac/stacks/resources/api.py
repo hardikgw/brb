@@ -10,6 +10,7 @@ class SiteApi(Construct):
 
     Routes (all under stage `/prod`):
       GET  /altcha          ->  altcha challenge function
+      GET  /fbevents        ->  facebook events feed function
       POST /signup          ->  signup function
       POST /holidaymarket   ->  holiday market vendor application function
 
@@ -29,6 +30,7 @@ class SiteApi(Construct):
         signup_function: lambda_.IFunction,
         altcha_function: lambda_.IFunction,
         holidaymarket_function: lambda_.IFunction,
+        fbevents_function: lambda_.IFunction,
         allowed_origins: list[str] | None = None,
     ) -> None:
         super().__init__(scope, construct_id)
@@ -49,6 +51,9 @@ class SiteApi(Construct):
 
         altcha = self.api.root.add_resource("altcha")
         altcha.add_method("GET", apigw.LambdaIntegration(altcha_function))
+
+        fbevents = self.api.root.add_resource("fbevents")
+        fbevents.add_method("GET", apigw.LambdaIntegration(fbevents_function))
 
         signup = self.api.root.add_resource("signup")
         signup.add_method("POST", apigw.LambdaIntegration(signup_function))
