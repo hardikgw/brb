@@ -464,6 +464,85 @@
     color: var(--ink-soft);
   }
 
+  .menu-card-sub {
+    font-family: var(--display);
+    font-size: 10.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--bronze-deep);
+    margin: -2px 0 16px;
+  }
+
+  .menu-items { list-style: none; }
+
+  .menu-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 7px 0;
+  }
+
+  .menu-item .name {
+    font-size: 16px;
+    color: var(--ink);
+    font-weight: 450;
+  }
+
+  .menu-item .dots {
+    flex: 1;
+    border-bottom: 1px dotted rgba(140, 107, 44, 0.45);
+    transform: translateY(-4px);
+  }
+
+  .menu-item .price {
+    font-family: var(--display);
+    font-size: 15px;
+    font-weight: 550;
+    color: var(--bronze-deep);
+    white-space: nowrap;
+  }
+
+  .menu-card-wide { grid-column: 1 / -1; }
+
+  .sides-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    margin-top: 6px;
+  }
+
+  .sides-flow li {
+    font-family: var(--display);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 550;
+    color: var(--ink);
+    padding: 8px 16px;
+    border: 1px solid rgba(140, 107, 44, 0.35);
+    border-radius: 999px;
+    background: rgba(201, 162, 79, 0.10);
+  }
+
+  .menu-tagline {
+    text-align: center;
+    margin-top: 46px;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink-soft);
+  }
+
+  .menu-tagline .tag-line-1 {
+    font-family: var(--display);
+    font-style: normal;
+    font-size: 21px;
+    color: var(--barn);
+    display: block;
+    margin-bottom: 6px;
+  }
+
   /* ===== BEYOND THE TAPS ===== */
   .beyond {
     background: var(--ink-deep);
@@ -832,33 +911,55 @@
       </p>
     </div>
 
-    <!-- PLACEHOLDER MENU CATEGORIES — sample copy; replace with the real menu
-         (or link a current menu) before promoting the new site. -->
+    <!-- Menu from the taproom menu board (Aug 2026). Keep in sync when prices/items change. -->
     <div class="menu-grid">
       <article class="menu-card reveal">
-        <span class="menu-card-icon" aria-hidden="true">🥨</span>
-        <h3>Starters &amp; <em>Snacks</em></h3>
-        <p>Beer-friendly bites built for the patio — soft pretzels with beer cheese, farm boards, and whatever the kitchen is showing off this week.</p>
-      </article>
-
-      <article class="menu-card reveal delay-1">
         <span class="menu-card-icon" aria-hidden="true">🥪</span>
-        <h3>Sandwiches &amp; <em>Mains</em></h3>
-        <p>Honest, satisfying plates — burgers, sandwiches, and comfort classics sized for an afternoon that turns into an evening.</p>
+        <h3>The <em>Sandwiches</em></h3>
+        <p class="menu-card-sub">Served with 2 sides</p>
+        <ul class="menu-items" role="list">
+          <li class="menu-item"><span class="name">Pulled Pork</span><span class="dots" aria-hidden="true"></span><span class="price">$12.99</span></li>
+          <li class="menu-item"><span class="name">Pulled Chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$12.99</span></li>
+          <li class="menu-item"><span class="name">Cheeseburger</span><span class="dots" aria-hidden="true"></span><span class="price">$12.99</span></li>
+          <li class="menu-item"><span class="name">Chicken Salad</span><span class="dots" aria-hidden="true"></span><span class="price">$10.99</span></li>
+          <li class="menu-item"><span class="name">Chicken Burger</span><span class="dots" aria-hidden="true"></span><span class="price">$12.99</span></li>
+          <li class="menu-item"><span class="name">Veggie Burger</span><span class="dots" aria-hidden="true"></span><span class="price">$12.99</span></li>
+        </ul>
       </article>
 
       <article class="menu-card reveal delay-1">
-        <span class="menu-card-icon" aria-hidden="true">🌿</span>
-        <h3>From <em>the Farm</em></h3>
-        <p>Herb-forward specials starring what's growing outside the window — the same beds that seasoned the beer season the plate.</p>
+        <span class="menu-card-icon" aria-hidden="true">🥨</span>
+        <h3>Snacks &amp; <em>Shareables</em></h3>
+        <p class="menu-card-sub">Built for the patio</p>
+        <ul class="menu-items" role="list">
+          <li class="menu-item"><span class="name">Soft Pretzel Braid w/ Beer Cheese</span><span class="dots" aria-hidden="true"></span><span class="price">$7.99</span></li>
+          <li class="menu-item"><span class="name">Basket of Fries</span><span class="dots" aria-hidden="true"></span><span class="price">$8.99</span></li>
+          <li class="menu-item"><span class="name">Basket of Mozzarella Sticks</span><span class="dots" aria-hidden="true"></span><span class="price">$8.50</span></li>
+          <li class="menu-item"><span class="name">Basket of Onion Rings</span><span class="dots" aria-hidden="true"></span><span class="price">$7.99</span></li>
+          <li class="menu-item"><span class="name">Chicken Tenders</span><span class="dots" aria-hidden="true"></span><span class="price">$8.99</span></li>
+        </ul>
       </article>
 
-      <article class="menu-card reveal delay-2">
-        <span class="menu-card-icon" aria-hidden="true">🍰</span>
-        <h3>Sweet <em>Finishes</em></h3>
-        <p>A short list of desserts that changes on the kitchen's whim. If the seasonal one is on, don't overthink it.</p>
+      <article class="menu-card menu-card-wide reveal delay-1">
+        <span class="menu-card-icon" aria-hidden="true">🥗</span>
+        <h3>The <em>Sides</em></h3>
+        <p class="menu-card-sub">Pick 2 with any sandwich</p>
+        <ul class="sides-flow" role="list">
+          <li>Coleslaw</li>
+          <li>Potato Salad</li>
+          <li>Macaroni Salad</li>
+          <li>Baked Beans</li>
+          <li>Bag Chips</li>
+          <li>Chips &amp; Salsa</li>
+          <li>Mac &amp; Cheese</li>
+        </ul>
       </article>
     </div>
+
+    <p class="menu-tagline reveal delay-2">
+      <span class="tag-line-1">Good Food. Cold Beer. Good Times.</span>
+      Thank you for supporting local &amp; independent.
+    </p>
   </div>
 </section>
 
