@@ -22,6 +22,8 @@ A static multi-page site for **Backroom Brewery** (Middletown, VA) — `backroom
 
 There is **no build system, package manager, bundler, framework, or test suite**. The HTML files are the deploy artifact.
 
+**Google Analytics 4 is on every page.** Each HTML file (all 13, including `index-backup.html` and `holidaymarket`) carries the gtag.js snippet (measurement ID `G-J0Z6SHHTDQ`) right after the viewport meta in `<head>`. Add it to any new page.
+
 **Shared chrome is duplicated by design.** The nav (with mobile hamburger menu), page-hero, footer, brand tokens, buttons, and reveal CSS/JS are copy-pasted into every page — when editing shared chrome, update **all pages** to keep them in sync. Subpage nav is always solid; the home nav is transparent until scrolled (`.scrolled`). Subpages use **absolute** asset paths (`/images/...`, `/config.json`); the home page uses relative paths.
 
 **Nav structure (new site) is a dropdown menu system:** Food & Drinks → `/beers`, `/food` · About → `/story` (Our Story), `/farm` (The Farm) · Events → `/events` (Don't Miss), `/private-events` · Contact → `/connect` (Stay In Touch), `/faq`, `/visit` (Visit Us). Desktop shows hover/click dropdown panels (`.nav-item` / `.nav-drop`, plus a `@media (min-width: 961px)` block); mobile renders them as an accordion inside the hamburger panel (`.nav-item.open`). The current page's link gets `class="active"` + `aria-current="page"`, **and** its parent dropdown toggle gets `class="active"`. The dropdown markup/CSS/JS is identical on every page — changing the menu means updating all 11 pages.
