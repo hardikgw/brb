@@ -743,10 +743,176 @@
     .awards-band { gap: 18px; }
     .award-vr { display: none; }
   }
+
+  /* ===== AGE GATE (21+) ===== */
+  .age-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 9500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(17, 21, 46, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .age-gate[hidden] { display: none; }
+
+  body.age-locked { overflow: hidden; }
+
+  .age-gate-card {
+    background: var(--paper);
+    border: 1px solid rgba(201, 162, 79, 0.45);
+    border-radius: 14px;
+    max-width: 420px;
+    width: 100%;
+    padding: 42px 36px 34px;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  }
+
+  .age-gate-card img { width: 68px; height: 68px; margin-bottom: 14px; }
+
+  .age-gate-card h2 {
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+    margin-bottom: 10px;
+  }
+
+  .age-gate-card h2 em { font-style: italic; color: var(--bronze-deep); }
+
+  .age-gate-card > p {
+    font-size: 15px;
+    line-height: 1.62;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+  }
+
+  .age-gate-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  .age-gate-field label {
+    font-family: var(--display);
+    font-size: 10.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--bronze-deep);
+  }
+
+  .age-gate-field input {
+    font-family: var(--body);
+    font-size: 17px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(140, 107, 44, 0.4);
+    background: #FBF5E4;
+    color: var(--ink);
+    width: 100%;
+  }
+
+  .age-gate-field input:focus {
+    outline: 2px solid var(--bronze);
+    outline-offset: 1px;
+  }
+
+  .age-gate-btn {
+    font-family: var(--display);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink-deep);
+    background: var(--bronze);
+    border: 2px solid var(--bronze);
+    border-radius: 999px;
+    padding: 14px 34px;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .age-gate-btn:hover { background: var(--bronze-light); border-color: var(--bronze-light); }
+
+  .age-gate-error {
+    display: none;
+    color: var(--barn);
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.5;
+    margin-top: 14px;
+  }
+
+  .age-gate.denied .age-gate-error { display: block; }
+
+  .age-gate-note {
+    margin-top: 18px;
+    font-size: 12.5px;
+    font-style: italic;
+    color: var(--ink-soft);
+    opacity: 0.85;
+  }
 </style>
 </head>
 <body class="no-js">
 <script>document.body.classList.remove('no-js');</script>
+
+<!-- ===== AGE GATE (21+) — Brewers Association code: birthdate affirmation, remembered in localStorage ===== -->
+<div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageGateTitle" hidden>
+  <div class="age-gate-card">
+    <img src="/images/brb-logo.gif" alt="" aria-hidden="true" />
+    <h2 id="ageGateTitle">Old enough for<br /><em>a cold one?</em></h2>
+    <p>Our beers are intended for adults of legal drinking age. Please enter your date of birth to continue.</p>
+    <form id="ageGateForm">
+      <div class="age-gate-field">
+        <label for="ageGateDob">Date of Birth</label>
+        <input type="date" id="ageGateDob" name="dob" required />
+      </div>
+      <button type="submit" class="age-gate-btn">Enter the Taproom</button>
+      <p class="age-gate-error" id="ageGateError" role="alert">Sorry — you must be 21 or older to view our beer list. Come see us on the farm in a few years.</p>
+    </form>
+    <p class="age-gate-note">Please drink responsibly.</p>
+  </div>
+</div>
+<script>
+(function () {
+  var KEY = 'brbAgeVerified';
+  var gate = document.getElementById('ageGate');
+  try { if (localStorage.getItem(KEY) === 'yes') return; } catch (e) {}
+  gate.hidden = false;
+  document.body.classList.add('age-locked');
+  var dobInput = document.getElementById('ageGateDob');
+  dobInput.max = new Date().toISOString().slice(0, 10);
+  document.getElementById('ageGateForm').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var dob = new Date(dobInput.value + 'T00:00:00');
+    if (isNaN(dob)) return;
+    var now = new Date();
+    var age = now.getFullYear() - dob.getFullYear();
+    var m = now.getMonth() - dob.getMonth();
+    if (m < 0 || (m === 0 && now.getDate() < dob.getDate())) age--;
+    if (age >= 21) {
+      try { localStorage.setItem(KEY, 'yes'); } catch (e) {}
+      gate.hidden = true;
+      gate.classList.remove('denied');
+      document.body.classList.remove('age-locked');
+    } else {
+      gate.classList.add('denied');
+    }
+  });
+})();
+</script>
 
 <!-- ===== NAV ===== -->
 <nav class="site-nav" id="siteNav" aria-label="Main navigation">

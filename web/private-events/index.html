@@ -845,88 +845,27 @@
 
   .pkg-card.featured .pkg-includes li::before { color: var(--bronze-light); }
 
-  .price-block { margin-bottom: 56px; }
-  .price-block:last-of-type { margin-bottom: 0; }
-
-  .price-block h3 {
-    font-family: var(--display);
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-    margin-bottom: 6px;
-  }
-
-  .price-block h3 em { font-style: italic; color: var(--bronze-deep); }
-
-  .price-block .price-block-sub {
-    font-family: var(--display);
-    font-size: 10.5px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--bronze-deep);
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
-
-  .table-scroll { overflow-x: auto; }
-
-  .price-table {
-    width: 100%;
-    min-width: 620px;
-    border-collapse: collapse;
-    background: #FBF5E4;
-    border: 1px solid rgba(140, 107, 44, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  .price-table thead th {
-    background: var(--ink-deep);
-    color: var(--bronze-light);
-    font-family: var(--display);
-    font-size: 10.5px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 600;
-    padding: 14px 16px;
-    text-align: right;
-    white-space: nowrap;
-  }
-
-  .price-table thead th:first-child { text-align: left; }
-
-  .price-table tbody th {
-    font-family: var(--display);
+  .pkg-price .pkg-price-range {
+    display: block;
     font-size: 14px;
-    font-weight: 550;
-    color: var(--ink);
-    text-align: left;
-    padding: 13px 16px;
-    white-space: nowrap;
+    font-weight: 400;
+    color: var(--ink-soft);
+    margin-top: 3px;
   }
 
-  .price-table tbody td {
-    padding: 13px 16px;
-    text-align: right;
+  .pkg-card.featured .pkg-price .pkg-price-range { color: rgba(244, 237, 217, 0.7); }
+
+  .pricing-note {
+    max-width: 720px;
+    margin: -28px auto 0;
+    text-align: center;
     font-size: 15.5px;
-    color: var(--ink-soft);
-    white-space: nowrap;
-  }
-
-  .price-table tbody tr { border-top: 1px solid rgba(140, 107, 44, 0.18); }
-
-  .price-table tbody tr.highlight { background: rgba(201, 162, 79, 0.16); }
-  .price-table tbody tr.highlight td, .price-table tbody tr.highlight th { font-weight: 600; color: var(--ink); }
-
-  .price-table .holiday { color: var(--bronze-deep); font-weight: 550; }
-
-  .price-footnote {
-    margin-top: 14px;
-    font-size: 13.5px;
     font-style: italic;
+    line-height: 1.7;
     color: var(--ink-soft);
   }
+
+  .pricing-note a { color: var(--bronze-deep); }
 
   .terms-note {
     max-width: 860px;
@@ -1425,7 +1364,7 @@
       <article class="pkg-card reveal delay-1">
         <div class="pkg-type">Venue Buyout · 5 Hours</div>
         <h3>Shenandoah <em>Sunset</em></h3>
-        <div class="pkg-price">$1,500 – $4,500</div>
+        <div class="pkg-price">Starting at $1,500 <span class="pkg-price-range">· up to $4,500 in peak season</span></div>
         <p>A more intimate rental across the two-level, 10,000 sq ft facility — five hours on site with a three-hour event window.</p>
         <ul class="pkg-includes" role="list">
           <li>Serving kitchen &amp; walk-in cooler</li>
@@ -1439,7 +1378,7 @@
       <article class="pkg-card featured reveal delay-2">
         <div class="pkg-type">Full Wedding Day · 8 Hours</div>
         <h3>Shenandoah <em>Golden Acre</em></h3>
-        <div class="pkg-price">$3,000 – $9,000</div>
+        <div class="pkg-price">Starting at $3,000 <span class="pkg-price-range">· up to $9,000 in peak season</span></div>
         <p>Exclusive full-day rental of the entire venue — the barn, the grounds, and everything in between, from first look to last dance.</p>
         <ul class="pkg-includes" role="list">
           <li>Two-level, 10,000 sq ft facility</li>
@@ -1452,56 +1391,10 @@
       </article>
     </div>
 
-    <div class="price-block reveal">
-      <h3>Shenandoah <em>Sunset</em> Package</h3>
-      <p class="price-block-sub">Pricing by Season &amp; Day</p>
-      <div class="table-scroll">
-        <table class="price-table">
-          <thead>
-            <tr>
-              <th scope="col">Day</th>
-              <th scope="col">May · Jun · Sep · Oct</th>
-              <th scope="col">Apr · Jul · Aug · Nov</th>
-              <th scope="col">Dec</th>
-              <th scope="col">Jan · Feb · Mar</th>
-              <th scope="col">Holiday Weekends</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Mon &amp; Tues</th><td>$3,000</td><td>$2,500</td><td>$2,000</td><td>$1,500</td><td>—</td></tr>
-            <tr><th scope="row">Wed &amp; Thurs</th><td>$3,500</td><td>$3,000</td><td>$2,500</td><td>$2,000</td><td>—</td></tr>
-            <tr><th scope="row">Fri &amp; Sun</th><td>$4,000</td><td>$3,500</td><td>$4,000</td><td>$3,500</td><td class="holiday">Fri $4,000 · Sun $4,500</td></tr>
-            <tr class="highlight"><th scope="row">Saturday</th><td>$4,500</td><td>$4,000</td><td>$3,500</td><td>$3,000</td><td class="holiday">$4,500</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="price-block reveal">
-      <h3>Shenandoah <em>Golden Acre</em> Package</h3>
-      <p class="price-block-sub">Pricing by Season &amp; Day</p>
-      <div class="table-scroll">
-        <table class="price-table">
-          <thead>
-            <tr>
-              <th scope="col">Day</th>
-              <th scope="col">May · Jun · Sep · Oct</th>
-              <th scope="col">Apr · Jul · Aug · Nov</th>
-              <th scope="col">Dec</th>
-              <th scope="col">Jan · Feb · Mar</th>
-              <th scope="col">Holiday Weekends</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Mon &amp; Tues</th><td>$6,000</td><td>$5,000</td><td>$4,000</td><td>$3,000</td><td>—</td></tr>
-            <tr><th scope="row">Wed &amp; Thurs</th><td>$7,000</td><td>$6,000</td><td>$5,000</td><td>$3,500</td><td>—</td></tr>
-            <tr><th scope="row">Fri &amp; Sun</th><td>$8,000</td><td>$7,000</td><td>$6,000</td><td>$4,500</td><td class="holiday">Fri $8,000 · Sun $9,000</td></tr>
-            <tr class="highlight"><th scope="row">Saturday</th><td>$9,000</td><td>$8,000</td><td>$7,000</td><td>$4,000</td><td class="holiday">$9,000</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="price-footnote">Holiday weekends include New Year&rsquo;s Eve, Memorial Day, Labor Day &amp; Columbus Day.</p>
-    </div>
+    <p class="pricing-note reveal">
+      Wedding packages are priced by season and day of the week — quiet winter weekdays open each range, and peak-season Saturdays and holiday weekends top it out.
+      <a href="mailto:hello@backroombrewery.com?subject=Wedding Date Inquiry">Share your date</a> and we&rsquo;ll quote it exactly.
+    </p>
 
     <div class="terms-note reveal">
       <h4>Booking &amp; Rental Terms</h4>
