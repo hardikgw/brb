@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Barn Wedding Venue &amp; Corporate Event Space — The Big Barn | Backroom Brewery, VA</title>
-<meta name="description" content="Rustic barn wedding venue &amp; corporate event space for up to 250 guests in the Shenandoah Valley — one hour from DC. Timber-framed Big Barn, gazebo patio ceremonies, full bar, on-site brewery. Weddings, rehearsal dinners, retreats &amp; private parties near Winchester and Front Royal, VA." />
+<meta name="description" content="Rustic barn wedding venue &amp; corporate event space for up to 250 guests in the Shenandoah Valley — one hour from DC. Home of Golden Acre Events: Mezzanine rentals from $250/hr, wedding packages from $1,500. Timber-framed Big Barn, gazebo patio ceremonies, full bar, on-site brewery near Winchester and Front Royal, VA." />
 <meta name="keywords" content="barn wedding venue virginia, wedding venue winchester va, rustic wedding venue shenandoah valley, farm wedding venue northern virginia, corporate event venue northern virginia, corporate retreat venue near dc, offsite meeting venue shenandoah, rehearsal dinner venue front royal, brewery wedding venue, private party venue middletown va" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://www.backroombrewery.com/private-events" />
@@ -34,10 +34,13 @@
       "@type": ["EventVenue", "LocalBusiness"],
       "@id": "https://www.backroombrewery.com/private-events#bigbarn",
       "name": "The Big Barn at Backroom Brewery",
-      "description": "Timber-framed barn wedding venue and corporate event space for up to 250 guests on a working Shenandoah Valley farm brewery. Indoor ceremony space, outdoor gazebo patio, full bar, on-site coordination, and custom catering — one hour from Washington, DC and Tysons Corner.",
+      "alternateName": "Golden Acre Events",
+      "description": "Timber-framed barn wedding venue and corporate event space for up to 250 guests on a working Shenandoah Valley farm brewery. Indoor ceremony space, outdoor gazebo patio, full bar, on-site coordination, and custom catering — one hour from Washington, DC and Tysons Corner. Mezzanine rentals from $250/hr; venue buyout wedding packages from $1,500 to $9,000 by season and day.",
       "url": "https://www.backroombrewery.com/private-events",
       "image": [
+        "https://www.backroombrewery.com/images/wedding/IMG_4602.jpeg",
         "https://www.backroombrewery.com/images/wedding/IMG_4582.jpeg",
+        "https://www.backroombrewery.com/images/wedding/IMG_4580.jpeg",
         "https://www.backroombrewery.com/images/wedding/IMG_4585.jpeg",
         "https://www.backroombrewery.com/images/wedding/IMG_4720.jpeg",
         "https://www.backroombrewery.com/images/wedding/event-venue.jpg"
@@ -72,7 +75,27 @@
         { "@type": "LocationFeatureSpecification", "name": "Mountain Views", "value": true }
       ],
       "makesOffer": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Barn Weddings & Receptions" } },
+        {
+          "@type": "Offer",
+          "name": "The Mezzanine",
+          "description": "Elevated private event space overlooking the barn and bar for up to 50 guests. 2-hour minimum, plus 60 minutes setup and cleanup.",
+          "priceSpecification": { "@type": "UnitPriceSpecification", "price": 250, "priceCurrency": "USD", "unitText": "hour" },
+          "itemOffered": { "@type": "Service", "name": "Mezzanine Rental (up to 50 guests)" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Shenandoah Sunset Package",
+          "description": "Five-hour venue buyout with a three-hour event window across the two-level 10,000 sq ft facility. Priced by season and day.",
+          "priceSpecification": { "@type": "PriceSpecification", "minPrice": 1500, "maxPrice": 4500, "priceCurrency": "USD" },
+          "itemOffered": { "@type": "Service", "name": "5-Hour Venue Buyout" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Shenandoah Golden Acre Package",
+          "description": "Exclusive full-wedding-day rental (8 hours) of the entire venue. Priced by season and day.",
+          "priceSpecification": { "@type": "PriceSpecification", "minPrice": 3000, "maxPrice": 9000, "priceCurrency": "USD" },
+          "itemOffered": { "@type": "Service", "name": "Full Wedding Day (8 Hours)" }
+        },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Rehearsal Dinners & Private Gatherings" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corporate Retreats & Offsite Meetings" } }
       ],
@@ -560,7 +583,7 @@
 
   .venue-gallery-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
 
@@ -596,6 +619,339 @@
     font-weight: 600;
     color: var(--bronze-light);
     text-align: center;
+  }
+
+  /* ===== GOLDEN ACRE / AMENITIES ===== */
+  .amenities {
+    background: var(--paper-2);
+    padding: 110px 24px;
+  }
+
+  .amenities-wrap { max-width: 1120px; margin: 0 auto; }
+
+  .amenities-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .amenities-header .sec-label { color: var(--barn); }
+  .amenities-header .sec-label::before, .amenities-header .sec-label::after { background: var(--barn); }
+
+  .amenities-header h2 {
+    font-family: var(--display);
+    font-size: clamp(30px, 4.2vw, 56px);
+    font-weight: 350;
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -0.022em;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+    margin-bottom: 18px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .amenities-header h2 em { font-style: italic; color: var(--barn); font-weight: 300; }
+
+  .amenities-header p {
+    font-size: 18px;
+    line-height: 1.68;
+    color: var(--ink-soft);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .amenity-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 60px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .amenity-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 18px;
+    padding: 17px 0;
+    border-bottom: 1px solid rgba(140, 107, 44, 0.26);
+  }
+
+  .amenity-list .label {
+    font-family: var(--display);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bronze-deep);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .amenity-list .val {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink);
+    font-weight: 400;
+    text-align: right;
+  }
+
+  /* ===== PACKAGES & PRICING ===== */
+  .packages {
+    background: var(--paper);
+    padding: 110px 24px;
+  }
+
+  .packages-wrap { max-width: 1120px; margin: 0 auto; }
+
+  .packages-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .packages-header .sec-label { color: var(--bronze-deep); }
+  .packages-header .sec-label::before, .packages-header .sec-label::after { background: var(--bronze-deep); }
+
+  .packages-header h2 {
+    font-family: var(--display);
+    font-size: clamp(30px, 4.2vw, 56px);
+    font-weight: 350;
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -0.022em;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+    margin-bottom: 18px;
+  }
+
+  .packages-header h2 em { font-style: italic; color: var(--bronze-deep); font-weight: 300; }
+
+  .packages-header p {
+    font-size: 18px;
+    line-height: 1.68;
+    color: var(--ink-soft);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .pkg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-bottom: 72px;
+    align-items: stretch;
+  }
+
+  .pkg-card {
+    padding: 38px 32px;
+    background: linear-gradient(145deg, #FBF5E4 0%, var(--paper-2) 100%);
+    border-radius: 10px;
+    border: 1px solid rgba(140, 107, 44, 0.16);
+    border-top: 3px solid var(--bronze);
+    box-shadow: 0 8px 24px rgba(27, 35, 71, 0.07);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .pkg-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 50px rgba(27, 35, 71, 0.14);
+  }
+
+  .pkg-card.featured {
+    background: var(--ink-deep);
+    color: var(--paper);
+    border-color: rgba(201, 162, 79, 0.4);
+  }
+
+  .pkg-type {
+    font-family: var(--display);
+    font-size: 10.5px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--barn);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .pkg-card.featured .pkg-type { color: var(--bronze-light); }
+
+  .pkg-card h3 {
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-bottom: 10px;
+  }
+
+  .pkg-card h3 em { font-style: italic; color: var(--bronze-deep); }
+  .pkg-card.featured h3 em { color: var(--bronze-light); }
+
+  .pkg-price {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--bronze-deep);
+    margin-bottom: 18px;
+  }
+
+  .pkg-card.featured .pkg-price { color: var(--bronze-light); }
+
+  .pkg-card > p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+  }
+
+  .pkg-card.featured > p { color: rgba(244, 237, 217, 0.78); }
+
+  .pkg-includes {
+    list-style: none;
+    padding-top: 20px;
+    border-top: 1px solid rgba(140, 107, 44, 0.26);
+  }
+
+  .pkg-card.featured .pkg-includes { border-top-color: rgba(244, 237, 217, 0.2); }
+
+  .pkg-includes li {
+    padding: 7px 0;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .pkg-card.featured .pkg-includes li { color: rgba(244, 237, 217, 0.85); }
+
+  .pkg-includes li::before {
+    content: '◦';
+    color: var(--bronze-deep);
+    font-weight: 700;
+  }
+
+  .pkg-card.featured .pkg-includes li::before { color: var(--bronze-light); }
+
+  .price-block { margin-bottom: 56px; }
+  .price-block:last-of-type { margin-bottom: 0; }
+
+  .price-block h3 {
+    font-family: var(--display);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+
+  .price-block h3 em { font-style: italic; color: var(--bronze-deep); }
+
+  .price-block .price-block-sub {
+    font-family: var(--display);
+    font-size: 10.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--bronze-deep);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .table-scroll { overflow-x: auto; }
+
+  .price-table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+    background: #FBF5E4;
+    border: 1px solid rgba(140, 107, 44, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .price-table thead th {
+    background: var(--ink-deep);
+    color: var(--bronze-light);
+    font-family: var(--display);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 14px 16px;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .price-table thead th:first-child { text-align: left; }
+
+  .price-table tbody th {
+    font-family: var(--display);
+    font-size: 14px;
+    font-weight: 550;
+    color: var(--ink);
+    text-align: left;
+    padding: 13px 16px;
+    white-space: nowrap;
+  }
+
+  .price-table tbody td {
+    padding: 13px 16px;
+    text-align: right;
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  .price-table tbody tr { border-top: 1px solid rgba(140, 107, 44, 0.18); }
+
+  .price-table tbody tr.highlight { background: rgba(201, 162, 79, 0.16); }
+  .price-table tbody tr.highlight td, .price-table tbody tr.highlight th { font-weight: 600; color: var(--ink); }
+
+  .price-table .holiday { color: var(--bronze-deep); font-weight: 550; }
+
+  .price-footnote {
+    margin-top: 14px;
+    font-size: 13.5px;
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  .terms-note {
+    max-width: 860px;
+    margin: 64px auto 0;
+    padding: 28px 32px;
+    background: #FBF5E4;
+    border: 1px solid rgba(140, 107, 44, 0.16);
+    border-left: 4px solid var(--bronze);
+    border-radius: 8px;
+  }
+
+  .terms-note h4 {
+    font-family: var(--display);
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--bronze-deep);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .terms-note p {
+    font-size: 15px;
+    line-height: 1.68;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 960px) {
+    .amenity-list { grid-template-columns: 1fr; gap: 0; }
+    .pkg-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 680px) {
+    .amenity-list li { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .amenity-list .val { text-align: left; }
   }
 
   .btn-outline {
@@ -946,7 +1302,7 @@
 
     <div class="events-layout">
       <div class="events-photo reveal">
-        <img src="/images/wedding/IMG_4660.jpeg" alt="Inside the Big Barn at Backroom Brewery — live-edge bar, wagon-wheel chandeliers, and exposed timber trusses" loading="lazy" />
+        <img src="/images/wedding/IMG_4602.jpeg" alt="The Big Barn's main event space seen from the mezzanine — wagon-wheel chandeliers, round tables, and the live-edge bar" loading="lazy" />
         <div class="events-photo-badge">
           <p>Capacity<strong>Up to 250 Guests</strong></p>
         </div>
@@ -969,8 +1325,8 @@
         </article>
 
         <div class="events-cta reveal delay-4">
-          <a href="mailto:hello@backroombrewery.com?subject=Event Inquiry" class="btn-bronze">Inquire About Your Event</a>
-          <a href="tel:+15408698482" class="btn-outline">Call (540) 869-8482</a>
+          <a href="#packages" class="btn-bronze">See Packages &amp; Pricing</a>
+          <a href="mailto:hello@backroombrewery.com?subject=Event Inquiry" class="btn-outline">Inquire About Your Event</a>
         </div>
       </div>
     </div>
@@ -978,22 +1334,170 @@
     <div class="venue-gallery reveal">
       <div class="venue-gallery-grid">
         <figure class="venue-shot">
-          <img src="/images/wedding/IMG_4585.jpeg" alt="The Big Barn's mezzanine loft — table seating under exposed timber trusses and warm pendant lighting" loading="lazy" />
-          <figcaption>The Loft</figcaption>
+          <img src="/images/wedding/IMG_4582.jpeg" alt="The main event space at floor level — grand stairway to the mezzanine, wedding arch, and exposed timber trusses" loading="lazy" />
+          <figcaption>Main Event Space</figcaption>
         </figure>
         <figure class="venue-shot">
           <img src="/images/wedding/event-venue.jpg" alt="Guests dressed up for a celebration on the Big Barn's staircase, draped in fabric and string lights" loading="lazy" />
           <figcaption>Ready to Celebrate</figcaption>
         </figure>
         <figure class="venue-shot">
-          <img src="/images/wedding/IMG_4719.jpeg" alt="The stamped-concrete patio with red umbrellas and picnic tables at Backroom Brewery" loading="lazy" />
-          <figcaption>The Patio</figcaption>
+          <img src="/images/wedding/IMG_4580.jpeg" alt="The Mezzanine overlooking the barn floor — high-top tables and dining seating along the rail" loading="lazy" />
+          <figcaption>The Mezzanine</figcaption>
         </figure>
         <figure class="venue-shot">
-          <img src="/images/wedding/IMG_4720.jpeg" alt="The patio looking out over the gazebo, open fields, and the mountains beyond" loading="lazy" />
-          <figcaption>Gazebo &amp; Valley Views</figcaption>
+          <img src="/images/wedding/IMG_4585.jpeg" alt="The Mezzanine lounge — sofa sets and table seating under exposed timber trusses and warm pendant lighting" loading="lazy" />
+          <figcaption>Mezzanine Lounge</figcaption>
+        </figure>
+        <figure class="venue-shot">
+          <img src="/images/wedding/IMG_4720.jpeg" alt="The lower patio looking out over the gazebo, open fields, and the mountains beyond" loading="lazy" />
+          <figcaption>Patio &amp; Gazebo</figcaption>
+        </figure>
+        <figure class="venue-shot">
+          <img src="/images/wedding/IMG_4719.jpeg" alt="The stamped-concrete lower patio with red umbrellas and picnic tables" loading="lazy" />
+          <figcaption>The Lower Patio</figcaption>
         </figure>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GOLDEN ACRE EVENTS / AMENITIES ===== -->
+<section class="amenities" id="golden-acre">
+  <div class="amenities-wrap">
+    <div class="amenities-header">
+      <div class="sec-label reveal">Golden Acre Events</div>
+      <h2 class="reveal delay-1">Weddings &amp; gatherings rooted<br /><em>in beauty and grace.</em></h2>
+      <p class="reveal delay-2">
+        The Barn and taproom are available for private events or group reservations — whichever suits your day. With multiple indoor and outdoor spaces to choose from, you and your guests will feel right at home.
+      </p>
+    </div>
+
+    <ul class="amenity-list reveal delay-2" role="list">
+      <li><span class="label">Capacity</span><span class="val">250 indoors · 500+ with grounds</span></li>
+      <li><span class="label">Indoor</span><span class="val">Two-level Barn, 10,000 sq ft</span></li>
+      <li><span class="label">Ceremony</span><span class="val">18×18 gazebo · chapel seating for 150+</span></li>
+      <li><span class="label">Patios</span><span class="val">900 sq ft upper · 2,700 sq ft lower</span></li>
+      <li><span class="label">Grounds</span><span class="val">7+ acres of gardens &amp; green space</span></li>
+      <li><span class="label">Dressing Rooms</span><span class="val">Separate bride &amp; groom suites</span></li>
+      <li><span class="label">Kitchen</span><span class="val">Catering kitchen + walk-in cooler</span></li>
+      <li><span class="label">Beverage</span><span class="val">Full VA ABC restaurant license</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== PACKAGES & PRICING (Golden Acre Events venue guide, Aug 2026) ===== -->
+<section class="packages" id="packages">
+  <div class="packages-wrap">
+    <div class="packages-header">
+      <div class="sec-label reveal">Packages &amp; Pricing</div>
+      <h2 class="reveal delay-1">Choose your <em>gathering.</em></h2>
+      <p class="reveal delay-2">
+        From an elevated corner of the barn to an exclusive full-day buyout — three ways to make the place yours.
+      </p>
+    </div>
+
+    <div class="pkg-grid">
+      <article class="pkg-card reveal">
+        <div class="pkg-type">50 Guests or Fewer</div>
+        <h3>The <em>Mezzanine</em></h3>
+        <div class="pkg-price">$250/hr · 2-hour minimum</div>
+        <p>An elevated event experience overlooking the entire barn and bar — TVs, climate control, and versatile seating for small gatherings and corporate events alike.</p>
+        <ul class="pkg-includes" role="list">
+          <li>+60 min setup &amp; cleanup included</li>
+          <li>Full atmosphere control for decor &amp; music</li>
+          <li>Eight 6-ft tables, six high-tops, three sofa sets</li>
+          <li>Linens &amp; tabletops included for groups of 30+</li>
+          <li>Our catering packages or bring your own</li>
+        </ul>
+      </article>
+
+      <article class="pkg-card reveal delay-1">
+        <div class="pkg-type">Venue Buyout · 5 Hours</div>
+        <h3>Shenandoah <em>Sunset</em></h3>
+        <div class="pkg-price">$1,500 – $4,500</div>
+        <p>A more intimate rental across the two-level, 10,000 sq ft facility — five hours on site with a three-hour event window.</p>
+        <ul class="pkg-includes" role="list">
+          <li>Serving kitchen &amp; walk-in cooler</li>
+          <li>Dressing rooms &amp; climate control</li>
+          <li>200 ceremony + 200 reception chairs</li>
+          <li>Round, rectangular &amp; high-top tables</li>
+          <li>24 wine barrels · ceremonial patio &amp; gazebo</li>
+        </ul>
+      </article>
+
+      <article class="pkg-card featured reveal delay-2">
+        <div class="pkg-type">Full Wedding Day · 8 Hours</div>
+        <h3>Shenandoah <em>Golden Acre</em></h3>
+        <div class="pkg-price">$3,000 – $9,000</div>
+        <p>Exclusive full-day rental of the entire venue — the barn, the grounds, and everything in between, from first look to last dance.</p>
+        <ul class="pkg-includes" role="list">
+          <li>Two-level, 10,000 sq ft facility</li>
+          <li>Serving kitchen, walk-in cooler &amp; dressing rooms</li>
+          <li>200 ceremony + 200 reception chairs</li>
+          <li>Round, rectangular &amp; high-top tables</li>
+          <li>24 wine barrels · 3,000 sq ft ceremonial patio &amp; gazebo</li>
+          <li>Year-round climate control</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="price-block reveal">
+      <h3>Shenandoah <em>Sunset</em> Package</h3>
+      <p class="price-block-sub">Pricing by Season &amp; Day</p>
+      <div class="table-scroll">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th scope="col">Day</th>
+              <th scope="col">May · Jun · Sep · Oct</th>
+              <th scope="col">Apr · Jul · Aug · Nov</th>
+              <th scope="col">Dec</th>
+              <th scope="col">Jan · Feb · Mar</th>
+              <th scope="col">Holiday Weekends</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Mon &amp; Tues</th><td>$3,000</td><td>$2,500</td><td>$2,000</td><td>$1,500</td><td>—</td></tr>
+            <tr><th scope="row">Wed &amp; Thurs</th><td>$3,500</td><td>$3,000</td><td>$2,500</td><td>$2,000</td><td>—</td></tr>
+            <tr><th scope="row">Fri &amp; Sun</th><td>$4,000</td><td>$3,500</td><td>$4,000</td><td>$3,500</td><td class="holiday">Fri $4,000 · Sun $4,500</td></tr>
+            <tr class="highlight"><th scope="row">Saturday</th><td>$4,500</td><td>$4,000</td><td>$3,500</td><td>$3,000</td><td class="holiday">$4,500</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="price-block reveal">
+      <h3>Shenandoah <em>Golden Acre</em> Package</h3>
+      <p class="price-block-sub">Pricing by Season &amp; Day</p>
+      <div class="table-scroll">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th scope="col">Day</th>
+              <th scope="col">May · Jun · Sep · Oct</th>
+              <th scope="col">Apr · Jul · Aug · Nov</th>
+              <th scope="col">Dec</th>
+              <th scope="col">Jan · Feb · Mar</th>
+              <th scope="col">Holiday Weekends</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Mon &amp; Tues</th><td>$6,000</td><td>$5,000</td><td>$4,000</td><td>$3,000</td><td>—</td></tr>
+            <tr><th scope="row">Wed &amp; Thurs</th><td>$7,000</td><td>$6,000</td><td>$5,000</td><td>$3,500</td><td>—</td></tr>
+            <tr><th scope="row">Fri &amp; Sun</th><td>$8,000</td><td>$7,000</td><td>$6,000</td><td>$4,500</td><td class="holiday">Fri $8,000 · Sun $9,000</td></tr>
+            <tr class="highlight"><th scope="row">Saturday</th><td>$9,000</td><td>$8,000</td><td>$7,000</td><td>$4,000</td><td class="holiday">$9,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="price-footnote">Holiday weekends include New Year&rsquo;s Eve, Memorial Day, Labor Day &amp; Columbus Day.</p>
+    </div>
+
+    <div class="terms-note reveal">
+      <h4>Booking &amp; Rental Terms</h4>
+      <p>
+        A signed contract is required — a 50% non-refundable payment of the total venue fee is due upon signing, with the remaining balance due 30 days before your event. Events booked within 30 days require payment in full at signing. Full-day rentals run 10:00 am – 10:00 pm; you choose your start time, and all events end by 10:00 pm. Rain plans are easy — there&rsquo;s indoor space for everything.
+      </p>
     </div>
   </div>
 </section>
