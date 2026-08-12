@@ -794,39 +794,6 @@
     margin-bottom: 22px;
   }
 
-  .age-gate-field {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 16px;
-    text-align: left;
-  }
-
-  .age-gate-field label {
-    font-family: var(--display);
-    font-size: 10.5px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: var(--bronze-deep);
-  }
-
-  .age-gate-field input {
-    font-family: var(--body);
-    font-size: 17px;
-    padding: 12px 14px;
-    border-radius: 8px;
-    border: 1px solid rgba(140, 107, 44, 0.4);
-    background: #FBF5E4;
-    color: var(--ink);
-    width: 100%;
-  }
-
-  .age-gate-field input:focus {
-    outline: 2px solid var(--bronze);
-    outline-offset: 1px;
-  }
-
   .age-gate-btn {
     font-family: var(--display);
     font-size: 11px;
@@ -844,6 +811,26 @@
   }
 
   .age-gate-btn:hover { background: var(--bronze-light); border-color: var(--bronze-light); }
+
+  .age-gate-actions {
+    display: flex;
+    gap: 12px;
+  }
+
+  .age-gate-actions .age-gate-btn { width: auto; flex: 1.6 1 0; }
+
+  .age-gate-btn.age-gate-btn-no {
+    flex: 1 1 0;
+    background: transparent;
+    border-color: rgba(27, 35, 71, 0.45);
+    color: var(--ink);
+  }
+
+  .age-gate-btn.age-gate-btn-no:hover {
+    background: transparent;
+    border-color: var(--barn);
+    color: var(--barn);
+  }
 
   .age-gate-error {
     display: none;
@@ -872,16 +859,13 @@
 <div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageGateTitle" hidden>
   <div class="age-gate-card">
     <img src="/images/brb-logo.gif" alt="" aria-hidden="true" />
-    <h2 id="ageGateTitle">Old enough for<br /><em>a cold one?</em></h2>
-    <p>Our beers are intended for adults of legal drinking age. Please enter your date of birth to continue.</p>
-    <form id="ageGateForm">
-      <div class="age-gate-field">
-        <label for="ageGateDob">Date of Birth</label>
-        <input type="date" id="ageGateDob" name="dob" required />
-      </div>
-      <button type="submit" class="age-gate-btn">Enter the Taproom</button>
-      <p class="age-gate-error" id="ageGateError" role="alert">Sorry — you must be 21 or older to view our beer list. Come see us on the farm in a few years.</p>
-    </form>
+    <h2 id="ageGateTitle">Are you over<br /><em>21 years of age?</em></h2>
+    <p>Our beers are intended for adults of legal drinking age.</p>
+    <div class="age-gate-actions">
+      <button type="button" class="age-gate-btn" id="ageGateYes">Yes — Pour Me In</button>
+      <button type="button" class="age-gate-btn age-gate-btn-no" id="ageGateNo">No</button>
+    </div>
+    <p class="age-gate-error" id="ageGateError" role="alert">Sorry — you must be 21 or older to view our beer list. Come see us on the farm in a few years.</p>
     <p class="age-gate-note">Please drink responsibly.</p>
   </div>
 </div>
@@ -892,24 +876,14 @@
   try { if (localStorage.getItem(KEY) === 'yes') return; } catch (e) {}
   gate.hidden = false;
   document.body.classList.add('age-locked');
-  var dobInput = document.getElementById('ageGateDob');
-  dobInput.max = new Date().toISOString().slice(0, 10);
-  document.getElementById('ageGateForm').addEventListener('submit', function (ev) {
-    ev.preventDefault();
-    var dob = new Date(dobInput.value + 'T00:00:00');
-    if (isNaN(dob)) return;
-    var now = new Date();
-    var age = now.getFullYear() - dob.getFullYear();
-    var m = now.getMonth() - dob.getMonth();
-    if (m < 0 || (m === 0 && now.getDate() < dob.getDate())) age--;
-    if (age >= 21) {
-      try { localStorage.setItem(KEY, 'yes'); } catch (e) {}
-      gate.hidden = true;
-      gate.classList.remove('denied');
-      document.body.classList.remove('age-locked');
-    } else {
-      gate.classList.add('denied');
-    }
+  document.getElementById('ageGateYes').addEventListener('click', function () {
+    try { localStorage.setItem(KEY, 'yes'); } catch (e) {}
+    gate.hidden = true;
+    gate.classList.remove('denied');
+    document.body.classList.remove('age-locked');
+  });
+  document.getElementById('ageGateNo').addEventListener('click', function () {
+    gate.classList.add('denied');
   });
 })();
 </script>
