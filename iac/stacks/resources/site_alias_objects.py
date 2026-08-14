@@ -1,8 +1,11 @@
 from pathlib import Path
 
+from aws_cdk import aws_cloudfront as cloudfront
 from aws_cdk import aws_s3 as s3
 from aws_cdk import aws_s3_deployment as s3_deployment
 from constructs import Construct
+
+from stacks.resources.site_deployment import SiteDeployment
 
 
 class SiteAliasObjects(Construct):
@@ -15,6 +18,10 @@ class SiteAliasObjects(Construct):
     re-uploads each page's HTML at the bare key so the pretty URL serves the
     page directly.
 
+    Alias objects carry the same short Cache-Control as the page deployment
+    so edits propagate within minutes, and invalidate the edge when a
+    distribution is provided.
+
     `prune=False` for the same reason as SiteDeployment: the bucket is shared
     and pre-existing.
     """
@@ -26,6 +33,7 @@ class SiteAliasObjects(Construct):
         *,
         bucket: s3.IBucket,
         aliases: dict[str, str],
+        distribution: cloudfront.IDistribution | None = None,
     ) -> None:
         super().__init__(scope, construct_id)
 
@@ -36,6 +44,12 @@ class SiteAliasObjects(Construct):
             for key, file_path in aliases.items()
         ]
 
+        invalidation = (
+            {"distribution": distribution, "distribution_paths": ["/*"]}
+            if distribution is not None
+            else {}
+        )
+
         self.deployment = s3_deployment.BucketDeployment(
             self,
             "Deployment",
@@ -43,5 +57,11 @@ class SiteAliasObjects(Construct):
             sources=sources,
             prune=False,
             content_type="text/html; charset=utf-8",
+            cache_control=[
+                s3_deployment.CacheControl.from_string(
+                    SiteDeployment.PAGES_CACHE_CONTROL
+                )
+            ],
             memory_limit=1024,
+            **invalidation,
         )

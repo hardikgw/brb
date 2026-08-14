@@ -3,11 +3,13 @@ import secrets
 from pathlib import Path
 
 import aws_cdk as cdk
+from aws_cdk import aws_cloudfront as cloudfront
 from constructs import Construct
 
 from stacks.naming import Naming
 from stacks.resources.altcha_challenge_function import AltchaChallengeFunction
 from stacks.resources.api import SiteApi
+from stacks.resources.edge_redirects import EdgeRedirects
 from stacks.resources.email_identity import SignupEmailIdentities
 from stacks.resources.fbevents_function import FacebookEventsFunction
 from stacks.resources.holidaymarket_function import HolidayMarketFunction
@@ -69,18 +71,34 @@ class SiteStack(cdk.Stack):
         project_root = iac_root.parent
         source_path = (iac_root / config["siteSourcePath"]).resolve()
 
+        cf_cfg = config.get("cloudfront") or {}
+        distribution = None
+        if cf_cfg.get("distributionId"):
+            # The distribution pre-exists outside this stack; importing it here
+            # only lets the deployments issue edge invalidations.
+            distribution = cloudfront.Distribution.from_distribution_attributes(
+                self,
+                "SiteDistribution",
+                distribution_id=cf_cfg["distributionId"],
+                domain_name=cf_cfg.get("domainName") or "",
+            )
+
         SiteDeployment(
             self,
             "SiteDeployment",
             bucket=site_bucket.bucket,
             source_path=str(source_path),
             exclude=config["siteExclude"],
+            distribution=distribution,
         )
+
+        edge_redirects = EdgeRedirects(self, "EdgeRedirects", naming=naming)
 
         SiteAliasObjects(
             self,
             "SiteAliasObjects",
             bucket=site_bucket.bucket,
+            distribution=distribution,
             aliases={
                 "holidaymarket": str(source_path / "holidaymarket" / "index.html"),
                 "story": str(source_path / "story" / "index.html"),
@@ -223,6 +241,12 @@ class SiteStack(cdk.Stack):
             },
         )
 
+        cdk.CfnOutput(
+            self,
+            "EdgeRedirectsFunctionArn",
+            value=edge_redirects.function.function_arn,
+            description="Attach as viewer-request function on the distribution's default behavior (one-time manual step)",
+        )
         cdk.CfnOutput(self, "ApiBaseUrl", value=site_api.api.url)
         cdk.CfnOutput(self, "AltchaChallengeUrl", value=site_api.api.url_for_path("/altcha"))
         cdk.CfnOutput(self, "SignupUrl", value=site_api.api.url_for_path("/signup"))

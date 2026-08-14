@@ -4,6 +4,10 @@ account: null
 
 existingBucketName: www.backroombrewery.com
 
+cloudfront:
+  distributionId: E1F2ORA7T7DWNR
+  domainName: d22fmn95qphprm.cloudfront.net
+
 lambda:
   envVars:
     LOG_LEVEL: INFO

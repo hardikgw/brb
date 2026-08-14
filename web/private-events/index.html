@@ -1484,6 +1484,13 @@
     });
   }, { threshold: 0.10, rootMargin: '0px 0px -50px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // GA4: count email inquiries (mailto clicks) as leads
+  document.querySelectorAll('a[href^="mailto:"]').forEach((a) => {
+    a.addEventListener('click', () => {
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'private_events_email' });
+    });
+  });
 </script>
 
 </body>

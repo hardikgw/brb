@@ -1406,6 +1406,8 @@
       });
       if (!response.ok) throw new Error('Server error ' + response.status);
 
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'vendor_application' });
+
       const card = document.getElementById('applyCard');
       card.innerHTML =
         '<div class="thanks-block">' +

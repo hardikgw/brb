@@ -14,6 +14,21 @@ siteSourcePath: ../web
 siteExclude:
   - .DS_Store
 
+# The CloudFront distribution in front of the site bucket. It pre-exists and
+# is NOT managed by this stack. Set distributionId (per env, in <env>.yml) to
+# make every deploy invalidate the edge cache (/*) so content changes show up
+# in minutes instead of waiting out the default TTL. domainName is
+# informational (invalidation only needs the id).
+# Two one-time manual steps still live on the distribution itself:
+#   1. Attach the EdgeRedirects CloudFront Function (apex->www 301 +
+#      trailing-slash strip) as the default behavior's viewer-request function.
+#   2. Add a Custom Error Response: 403 -> /404.html with response code 404
+#      (low error-caching TTL, e.g. 60s) so bad URLs get the branded 404
+#      instead of S3's AccessDenied XML.
+cloudfront:
+  distributionId: null
+  domainName: null
+
 lambda:
   runtime: python3.12
   handler: handler.lambda_handler
