@@ -115,7 +115,7 @@
     },
     {
       "@type": "SiteNavigationElement",
-      "name": ["Draft Beers", "Food & Beverages", "Our Story", "The Farm", "Taproom", "Don't Miss", "Private Events", "Stay In Touch", "FAQ", "Visit Us"],
+      "name": ["Draft Beers", "Food & Beverages", "Our Story", "The Farm", "Taproom", "Don't Miss", "Private Events", "Weddings", "Stay In Touch", "FAQ", "Visit Us"],
       "url": [
         "https://www.backroombrewery.com/beers",
         "https://www.backroombrewery.com/food",
@@ -124,6 +124,7 @@
         "https://www.backroombrewery.com/taproom",
         "https://www.backroombrewery.com/events",
         "https://www.backroombrewery.com/private-events",
+        "https://www.backroombrewery.com/weddings",
         "https://www.backroombrewery.com/connect",
         "https://www.backroombrewery.com/faq",
         "https://www.backroombrewery.com/visit"
@@ -826,6 +827,7 @@
   .explore-card.ex-beers { border-top-color: var(--wood); }
   .explore-card.ex-food { border-top-color: var(--hop-light); }
   .explore-card.ex-private { border-top-color: var(--barn-deep); }
+  .explore-card.ex-weddings { border-top-color: var(--bronze-deep); }
   .explore-card.ex-faq { border-top-color: var(--wood-light); }
 
   .explore-card.ex-story h3 em { color: var(--barn); }
@@ -837,6 +839,7 @@
   .explore-card.ex-beers h3 em { color: var(--wood); }
   .explore-card.ex-food h3 em { color: var(--hop); }
   .explore-card.ex-private h3 em { color: var(--barn-deep); }
+  .explore-card.ex-weddings h3 em { color: var(--bronze-deep); }
   .explore-card.ex-faq h3 em { color: var(--wood); }
 
   .explore-icon {
@@ -1070,6 +1073,7 @@
       <ul class="nav-drop" id="dropEvents" role="list">
         <li><a href="/events">Don&rsquo;t Miss</a></li>
         <li><a href="/private-events">Private Events</a></li>
+        <li><a href="/weddings">Weddings</a></li>
       </ul>
     </li>
     <li class="nav-item">
@@ -1241,6 +1245,13 @@
         <span class="explore-go">See the venue →</span>
       </a>
 
+      <a class="explore-card ex-weddings reveal delay-3" href="/weddings">
+        <span class="explore-icon" aria-hidden="true">💍</span>
+        <h3>Weddings <em>at the Barn</em></h3>
+        <p>Gazebo ceremonies, timber-framed receptions for up to 250 guests, and mountains in every photo — from first look to last dance.</p>
+        <span class="explore-go">Plan your wedding →</span>
+      </a>
+
       <a class="explore-card ex-visit reveal delay-3" href="/visit">
         <span class="explore-icon" aria-hidden="true">📍</span>
         <h3>Plan Your <em>Visit</em></h3>
@@ -1281,6 +1292,7 @@
     <a href="/farm">The Farm</a>
     <a href="/events">Don&rsquo;t Miss</a>
     <a href="/private-events">Private Events</a>
+    <a href="/weddings">Weddings</a>
     <a href="/connect">Stay In Touch</a>
     <a href="/faq">FAQ</a>
     <a href="/visit">Visit Us</a>

@@ -109,6 +109,7 @@ class SiteStack(cdk.Stack):
                 "beers": str(source_path / "beers" / "index.html"),
                 "food": str(source_path / "food" / "index.html"),
                 "private-events": str(source_path / "private-events" / "index.html"),
+                "weddings": str(source_path / "weddings" / "index.html"),
                 "faq": str(source_path / "faq" / "index.html"),
                 "farm": str(source_path / "farm" / "index.html"),
             },
